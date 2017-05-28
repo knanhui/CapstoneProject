@@ -1,0 +1,1 @@
+res/edje/custom_button.edj:

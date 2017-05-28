@@ -1,0 +1,626 @@
+S/W Version Information
+Model: Emulator
+Tizen-Version: 2.4.0
+Build-Number: Tizen-2.4.0_Mobile-Emulator_20160526.1540
+Build-Date: 2016.05.26 15:40:57
+
+Crash Information
+Process Name: example
+PID: 7376
+Date: 2017-03-28 03:05:41+0900
+Executable File Path: /opt/usr/apps/org.example.example/bin/example
+Signal: 11
+      (SIGSEGV)
+      si_code: 1
+      address not mapped to object
+      si_addr = 0x20
+
+Register Information
+gs  = 0x00000033, fs  = 0x00000000
+es  = 0x0000007b, ds  = 0x0000007b
+edi = 0x00000000, esi = 0x8000c865
+ebp = 0xbf8c8b08, esp = 0xbf8c8ac0
+eax = 0x00000000, ebx = 0xb76a5a40
+ecx = 0xb95cef60, edx = 0x00000000
+eip = 0xb75a1dad
+
+Memory Information
+MemTotal:      123 KB
+MemFree:        29 KB
+Buffers:         4 KB
+Cached:     170504 KB
+VmPeak:      91872 KB
+VmSize:      91872 KB
+VmLck:           0 KB
+VmPin:           0 KB
+VmHWM:       16324 KB
+VmRSS:       16324 KB
+VmData:      28364 KB
+VmStk:         136 KB
+VmExe:          32 KB
+VmLib:       33312 KB
+VmPTE:          72 KB
+VmSwap:          0 KB
+
+Threads Information
+Threads: 3
+PID = 7376 TID = 7376
+7376 7379 7570 
+
+Maps Information
+b2c6b000 b2c75000 r-xp /usr/lib/libfeedback.so.0.1.4
+b2c7b000 b2c87000 r-xp /usr/lib/ecore_evas/engines/extn/v-1.13/module.so
+b2c88000 b2ca9000 r-xp /usr/lib/edje/modules/elm/v-1.13/module.so
+b2cae000 b2caf000 r-xp /usr/lib/libX11-xcb.so.1.0.0
+b2cb0000 b2cb5000 r-xp /usr/lib/libxcb-sync.so.1.0.0
+b2cb6000 b2cb8000 r-xp /usr/lib/libxcb-present.so.0.0.0
+b2cb9000 b2cbb000 r-xp /usr/lib/libxcb-dri3.so.0.0.0
+b2cbc000 b2cc8000 r-xp /usr/lib/libdrm.so.2.4.0
+b2cc9000 b2ccc000 r-xp /usr/lib/libdri2.so.0.0.0
+b2ccd000 b2cd7000 r-xp /usr/lib/libtbm.so.1.0.0
+b2cde000 b2cdf000 r-xp /usr/lib/libmmfkeysound.so.0.0.0
+b2ce0000 b2ce1000 r-xp /usr/lib/edje/modules/feedback/v-1.13/module.so
+b2ce2000 b2ce5000 r-xp /usr/lib/libdrm_vigs.so.10.0.0
+b2ce6000 b2ce9000 r-xp /usr/lib/bufmgr/libtbm_emulator.so.0.0.0
+b2cea000 b2cff000 r-xp /usr/lib/evas/modules/engines/software_x11/v-1.13/module.so
+b2d00000 b2d12000 r-xp /usr/lib/ecore_evas/engines/x/v-1.13/module.so
+b361b000 b3621000 r-xp /usr/lib/libecore_ipc.so.1.13.0
+b3622000 b3766000 r-xp /usr/lib/libscim-1.0.so.8.2.3
+b3776000 b3777000 r-xp /usr/lib/libxshmfence.so.1.0.0
+b3778000 b3779000 r-xp /usr/lib/libgthread-2.0.so.0.4400.1
+b377a000 b3783000 r-xp /usr/lib/libefl-extension.so.0.1.0
+b3784000 b3786000 r-xp /opt/usr/apps/org.example.example/bin/example
+b3788000 b37c1000 r-xp /usr/lib/ecore_imf/modules/isf/v-1.13/module.so
+b41c4000 b41cf000 r-xp /lib/libnss_files-2.20-2014.11.so
+b41d1000 b41dc000 r-xp /lib/libnss_nis-2.20-2014.11.so
+b41de000 b41f5000 r-xp /lib/libnsl-2.20-2014.11.so
+b41f9000 b4201000 r-xp /lib/libnss_compat-2.20-2014.11.so
+b4203000 b4227000 r-xp /usr/lib/libprivacy-manager-client.so.0.0.6
+b4228000 b4229000 r-xp /usr/lib/libsecurity-privilege-checker.so.1.0.1
+b422a000 b422d000 r-xp /usr/lib/libcapi-appfw-app-common.so.0.3.1.0
+b422e000 b4235000 r-xp /usr/lib/libcapi-appfw-app-control.so.0.3.1.0
+b4236000 b4240000 r-xp /usr/lib/libsensord-share.so
+b4241000 b425d000 r-xp /usr/lib/libsensor.so.1.2.0
+b425f000 b4268000 r-xp /usr/lib/libappcore-common.so.1.1
+b426b000 b426d000 r-xp /usr/lib/ecore/system/systemd/v-1.13/module.so
+b4282000 b4284000 r-xp /usr/lib/libXau.so.6.0.0
+b4285000 b42a7000 r-xp /usr/lib/libxcb.so.1.1.0
+b42a9000 b42b2000 r-xp /lib/libcrypt-2.20-2014.11.so
+b42db000 b42dd000 r-xp /usr/lib/libiri.so
+b42de000 b4304000 r-xp /lib/libexpat.so.1.5.2
+b4306000 b4371000 r-xp /usr/lib/libssl.so.1.0.0
+b4377000 b4383000 r-xp /usr/lib/libethumb.so.1.13.0
+b4384000 b4388000 r-xp /usr/lib/libecore_input_evas.so.1.13.0
+b4389000 b45da000 r-xp /usr/lib/libcrypto.so.1.0.0
+b5b55000 b5b65000 r-xp /usr/lib/libXi.so.6.1.0
+b5b66000 b5b68000 r-xp /usr/lib/libXgesture.so.7.0.0
+b5b69000 b5b6f000 r-xp /usr/lib/libXtst.so.6.1.0
+b5b70000 b5b7a000 r-xp /usr/lib/libXrender.so.1.3.0
+b5b7b000 b5b84000 r-xp /usr/lib/libXrandr.so.2.2.0
+b5b86000 b5b88000 r-xp /usr/lib/libXinerama.so.1.0.0
+b5b89000 b5b8e000 r-xp /usr/lib/libXfixes.so.3.1.0
+b5b8f000 b5ba1000 r-xp /usr/lib/libXext.so.6.4.0
+b5ba2000 b5ba4000 r-xp /usr/lib/libXdamage.so.1.1.0
+b5ba5000 b5ba7000 r-xp /usr/lib/libXcomposite.so.1.0.0
+b5ba9000 b5ceb000 r-xp /usr/lib/libX11.so.6.3.0
+b5cef000 b5cf9000 r-xp /usr/lib/libXcursor.so.1.0.2
+b5cfa000 b5d10000 r-xp /usr/lib/libudev.so.1.6.0
+b5d13000 b5d17000 r-xp /lib/libattr.so.1.1.0
+b5d18000 b5d47000 r-xp /usr/lib/libsecurity-server-commons.so.1.0.0
+b5d49000 b5d4f000 r-xp /usr/lib/libffi.so.6.0.2
+b5d50000 b5d73000 r-xp /lib/libz.so.1.2.8
+b5d74000 b5d77000 r-xp /usr/lib/libgmodule-2.0.so.0.4400.1
+b5d78000 b5ed4000 r-xp /usr/lib/libxml2.so.2.9.2
+b5eda000 b5fc1000 r-xp /usr/lib/libstdc++.so.6.0.20
+b5fce000 b5fd1000 r-xp /usr/lib/libSLP-db-util.so.0.1.0
+b5fd2000 b5ff4000 r-xp /usr/lib/libpkgmgr_parser.so.0.1.0
+b5ff5000 b6009000 r-xp /lib/libresolv-2.20-2014.11.so
+b600d000 b6031000 r-xp /usr/lib/liblzma.so.5.0.3
+b6032000 b6034000 r-xp /usr/lib/libecore_imf_evas.so.1.13.0
+b6036000 b6040000 r-xp /usr/lib/libembryo.so.1.13.0
+b6041000 b606a000 r-xp /usr/lib/libpng12.so.0.50.0
+b606b000 b60b4000 r-xp /usr/lib/libjpeg.so.8.0.2
+b60c5000 b60cc000 r-xp /lib/librt-2.20-2014.11.so
+b60ce000 b60ed000 r-xp /usr/lib/libector.so.1.13.0
+b60f0000 b611d000 r-xp /usr/lib/liblua-5.1.so
+b611e000 b61ae000 r-xp /usr/lib/libfreetype.so.6.11.3
+b61b2000 b61f0000 r-xp /usr/lib/libfontconfig.so.1.8.0
+b61f1000 b6207000 r-xp /usr/lib/libfribidi.so.0.3.1
+b6208000 b6261000 r-xp /usr/lib/libharfbuzz.so.0.940.0
+b6264000 b62af000 r-xp /lib/libm-2.20-2014.11.so
+b62b1000 b62c3000 r-xp /usr/lib/libeio.so.1.13.0
+b62c4000 b62c7000 r-xp /usr/lib/libefreet_trash.so.1.13.0
+b62c8000 b62ce000 r-xp /usr/lib/libefreet_mime.so.1.13.0
+b62cf000 b62f2000 r-xp /usr/lib/libefreet.so.1.13.0
+b62f5000 b6320000 r-xp /usr/lib/libeldbus.so.1.13.0
+b6321000 b6355000 r-xp /usr/lib/libecore_con.so.1.13.0
+b6357000 b6360000 r-xp /usr/lib/libecore_imf.so.1.13.0
+b6361000 b636a000 r-xp /usr/lib/libethumb_client.so.1.13.0
+b636b000 b637e000 r-xp /usr/lib/libeo.so.1.13.0
+b6380000 b6393000 r-xp /usr/lib/libecore_input.so.1.13.0
+b6394000 b639b000 r-xp /usr/lib/libecore_file.so.1.13.0
+b639c000 b63bf000 r-xp /usr/lib/libecore_evas.so.1.13.0
+b63c0000 b63ec000 r-xp /usr/lib/libeet.so.1.13.0
+b63f5000 b6460000 r-xp /usr/lib/libeina.so.1.13.0
+b6463000 b647a000 r-xp /usr/lib/libefl.so.1.13.0
+b647c000 b65e3000 r-xp /usr/lib/libicuuc.so.51.1
+b65f1000 b67fd000 r-xp /usr/lib/libicui18n.so.51.1
+b6805000 b6854000 r-xp /usr/lib/libecore_x.so.1.13.0
+b6856000 b6870000 r-xp /lib/libgcc_s-4.9.so.1
+b6872000 b6876000 r-xp /lib/libcap.so.2.21
+b6877000 b68bd000 r-xp /usr/lib/libsecurity-server-client.so.1.0.1
+b68be000 b68c5000 r-xp /usr/lib/libcapi-base-common.so.0.2.2
+b68c7000 b6919000 r-xp /usr/lib/libgobject-2.0.so.0.4400.1
+b691b000 b6aa6000 r-xp /usr/lib/libgio-2.0.so.0.4400.1
+b6aab000 b6b79000 r-xp /usr/lib/libsqlite3.so.0.8.6
+b6b7c000 b6b80000 r-xp /usr/lib/libcapi-system-info.so.0.2.0
+b6b81000 b6b90000 r-xp /usr/lib/libvconf.so.0.2.45
+b6b91000 b6b94000 r-xp /usr/lib/libvasum.so.0.3.1
+b6b95000 b6b98000 r-xp /usr/lib/libttrace.so.1.1
+b6b9a000 b6b9e000 r-xp /usr/lib/libiniparser.so.0
+b6b9f000 b6bcf000 r-xp /usr/lib/libpkgmgr-info.so.0.0.17
+b6bd0000 b6bd9000 r-xp /usr/lib/libxdgmime.so.1.1.0
+b6bda000 b6bff000 r-xp /usr/lib/libdbus-glib-1.so.2.2.2
+b6c00000 b6c10000 r-xp /usr/lib/libunwind.so.8.0.1
+b6c1a000 b6dc8000 r-xp /lib/libc-2.20-2014.11.so
+b6dd0000 b6f13000 r-xp /usr/lib/libglib-2.0.so.0.4400.1
+b6f15000 b6f6d000 r-xp /usr/lib/libdbus-1.so.3.8.11
+b6f6e000 b6fa2000 r-xp /usr/lib/libsystemd.so.0.4.0
+b6fa5000 b7079000 r-xp /usr/lib/libedje.so.1.13.0
+b707c000 b70a8000 r-xp /usr/lib/libecore.so.1.13.0
+b70b9000 b72df000 r-xp /usr/lib/libevas.so.1.13.0
+b7307000 b731f000 r-xp /lib/libpthread-2.20-2014.11.so
+b7323000 b769d000 r-xp /usr/lib/libelementary.so.1.13.0
+b76bd000 b76c1000 r-xp /usr/lib/libsmack.so.1.0.0
+b76c2000 b76cb000 r-xp /usr/lib/libprivilege-control.so.0.0.2
+b76cc000 b76cf000 r-xp /usr/lib/libdlog.so.0.0.0
+b76d0000 b76d5000 r-xp /usr/lib/libbundle.so.0.1.22
+b76d6000 b76d9000 r-xp /lib/libdl-2.20-2014.11.so
+b76db000 b7700000 r-xp /usr/lib/libaul.so.0.1.0
+b7703000 b7705000 r-xp /usr/lib/libappsvc.so.0.1.0
+b7706000 b770b000 r-xp /usr/lib/libcapi-appfw-application.so.0.3.1.0
+b770c000 b7713000 r-xp /usr/lib/libappcore-efl.so.1.1
+b7715000 b771a000 r-xp /usr/lib/libsys-assert.so
+b771d000 b771e000 r-xp [vdso]
+b771e000 b7740000 r-xp /lib/ld-2.20-2014.11.so
+b7742000 b774a000 r-xp /usr/bin/launchpad-loader
+End of Maps Information
+
+Callstack Information (PID:7376)
+Call Stack Count: 46
+ 0: (0xb75a1dad) [/usr/lib/libelementary.so.1] + 0x27edad
+ 1: (0xb63790f0) [/usr/lib/libeo.so.1] + 0xe0f0
+ 2: eo_event_callback_call + 0xb3 (0xb6376d63) [/usr/lib/libeo.so.1] + 0xbd63
+ 3: (0xb70eda62) [/usr/lib/libevas.so.1] + 0x34a62
+ 4: (0xb713832a) [/usr/lib/libevas.so.1] + 0x7f32a
+ 5: eo_destructor + 0x99 (0xb6376079) [/usr/lib/libeo.so.1] + 0xb079
+ 6: (0xb7120e11) [/usr/lib/libevas.so.1] + 0x67e11
+ 7: eo_destructor + 0x99 (0xb6376079) [/usr/lib/libeo.so.1] + 0xb079
+ 8: _eo_do_end + 0x15b (0xb636e5ab) [/usr/lib/libeo.so.1] + 0x35ab
+ 9: (0xb637a0c5) [/usr/lib/libeo.so.1] + 0xf0c5
+10: eo_destructor + 0x99 (0xb6376079) [/usr/lib/libeo.so.1] + 0xb079
+11: (0xb713868e) [/usr/lib/libevas.so.1] + 0x7f68e
+12: eo_destructor + 0x99 (0xb6376079) [/usr/lib/libeo.so.1] + 0xb079
+13: (0xb759438b) [/usr/lib/libelementary.so.1] + 0x27138b
+14: eo_destructor + 0x99 (0xb6376079) [/usr/lib/libeo.so.1] + 0xb079
+15: _eo_do_end + 0x15b (0xb636e5ab) [/usr/lib/libeo.so.1] + 0x35ab
+16: eo_del + 0xb3 (0xb63737a3) [/usr/lib/libeo.so.1] + 0x87a3
+17: evas_object_del + 0x81 (0xb712dcc1) [/usr/lib/libevas.so.1] + 0x74cc1
+18: (0xb7145087) [/usr/lib/libevas.so.1] + 0x8c087
+19: (0xb7147ebb) [/usr/lib/libevas.so.1] + 0x8eebb
+20: evas_obj_smart_del + 0x99 (0xb7143eb9) [/usr/lib/libevas.so.1] + 0x8aeb9
+21: (0xb714ff8c) [/usr/lib/libevas.so.1] + 0x96f8c
+22: evas_obj_smart_del + 0x99 (0xb7143eb9) [/usr/lib/libevas.so.1] + 0x8aeb9
+23: (0xb71456f1) [/usr/lib/libevas.so.1] + 0x8c6f1
+24: (0xb713875b) [/usr/lib/libevas.so.1] + 0x7f75b
+25: eo_destructor + 0x99 (0xb6376079) [/usr/lib/libeo.so.1] + 0xb079
+26: _eo_do_end + 0x15b (0xb636e5ab) [/usr/lib/libeo.so.1] + 0x35ab
+27: eo_del + 0xb3 (0xb63737a3) [/usr/lib/libeo.so.1] + 0x87a3
+28: evas_object_del + 0x81 (0xb712dcc1) [/usr/lib/libevas.so.1] + 0x74cc1
+29: (0xb75b3f44) [/usr/lib/libelementary.so.1] + 0x290f44
+30: evas_obj_smart_del + 0x99 (0xb7143eb9) [/usr/lib/libevas.so.1] + 0x8aeb9
+31: (0xb71456f1) [/usr/lib/libevas.so.1] + 0x8c6f1
+32: (0xb713875b) [/usr/lib/libevas.so.1] + 0x7f75b
+33: eo_destructor + 0x99 (0xb6376079) [/usr/lib/libeo.so.1] + 0xb079
+34: (0xb759438b) [/usr/lib/libelementary.so.1] + 0x27138b
+35: eo_destructor + 0x99 (0xb6376079) [/usr/lib/libeo.so.1] + 0xb079
+36: _eo_do_end + 0x15b (0xb636e5ab) [/usr/lib/libeo.so.1] + 0x35ab
+37: eo_del + 0xb3 (0xb63737a3) [/usr/lib/libeo.so.1] + 0x87a3
+38: evas_object_del + 0x81 (0xb712dcc1) [/usr/lib/libevas.so.1] + 0x74cc1
+39: (0xb75ae7da) [/usr/lib/libelementary.so.1] + 0x28b7da
+40: elm_shutdown + 0x71 (0xb74ea5b1) [/usr/lib/libelementary.so.1] + 0x1c75b1
+41: appcore_efl_main + 0x5b7 (0xb770feb7) [/usr/lib/libappcore-efl.so.1] + 0x3eb7
+42: ui_app_main + 0x140 (0xb7708c80) [/usr/lib/libcapi-appfw-application.so.0] + 0x2c80
+43: main + 0x26d (0xb378516d) [/opt/usr/apps/org.example.example/bin/example] + 0x116d
+44: (0xb7744148) [/opt/usr/apps/org.example.example/bin/example] + 0xb7744148
+45: __libc_start_main + 0xde (0xb6c31e4e) [/lib/libc.so.6] + 0x17e4e
+End of Call Stack
+
+Package Information
+Package Name: org.example.example
+Package ID : org.example.example
+Version: 1.0.0
+Package Type: tpk
+App Name: example
+App ID: org.example.example
+Type: capp
+Categories: 
+
+Latest Debug Message Information
+--------- beginning of /dev/log_main
+: appcore-efl.c: __before_loop(1154) > [example:Application:create:done]
+03-28 03:03:18.185+0900 E/VCONF   ( 7418): vconf.c: _vconf_check_retry_err(1368) > db/menu_widget/language : check retry err (-21/13).
+03-28 03:03:18.185+0900 E/VCONF   ( 7418): vconf.c: _vconf_get_key_filesys(2375) > _vconf_get_key_filesys(db/menu_widget/language) step(-21) failed(13 / Permission denied) retry(0) 
+03-28 03:03:18.185+0900 E/VCONF   ( 7418): vconf.c: _vconf_get_key(2411) > _vconf_get_key(db/menu_widget/language) step(-21) failed(13 / Permission denied)
+03-28 03:03:18.185+0900 E/VCONF   ( 7418): vconf.c: vconf_get_str(2891) > vconf_get_str(7418) : db/menu_widget/language error
+03-28 03:03:18.185+0900 E/PKGMGR_INFO( 7418): pkgmgrinfo_private.c: __convert_system_locale_to_manifest_locale(354) > syslocale is null
+03-28 03:03:18.185+0900 D/PKGMGR_INFO( 7418): pkgmgrinfo_appinfo.c: pkgmgrinfo_appinfo_filter_foreach_appinfo(3617) > [SECURE_LOG] where = package_app_info.app_exec='/opt/usr/apps/org.example.example/bin/example' and package_app_info.app_disable IN ('false','False')
+03-28 03:03:18.185+0900 D/PKGMGR_INFO( 7418): pkgmgrinfo_appinfo.c: pkgmgrinfo_appinfo_filter_foreach_appinfo(3623) > [SECURE_LOG] query = select DISTINCT package_app_info.*, package_app_localized_info.app_locale, package_app_localized_info.app_label, package_app_localized_info.app_icon from package_app_info LEFT OUTER JOIN package_app_localized_info ON package_app_info.app_id=package_app_localized_info.app_id and package_app_localized_info.app_locale IN ('No Locale', 'No Locale') LEFT OUTER JOIN package_app_app_svc ON package_app_info.app_id=package_app_app_svc.app_id LEFT OUTER JOIN package_app_app_category ON package_app_info.app_id=package_app_app_category.app_id where package_app_info.app_exec='/opt/usr/apps/org.example.example/bin/example' and package_app_info.app_disable IN ('false','False')
+03-28 03:03:18.185+0900 E/E17     ( 2840): e_manager.c: _e_manager_cb_window_show_request(1134) > Show request(0x02600002)
+03-28 03:03:18.185+0900 D/APP_CORE( 7376): appcore-efl.c: __check_wm_rotation_support(835) > Disable window manager rotation
+03-28 03:03:18.185+0900 E/VCONF   ( 7418): vconf.c: _vconf_check_retry_err(1368) > db/menu_widget/language : check retry err (-21/13).
+03-28 03:03:18.185+0900 E/VCONF   ( 7418): vconf.c: _vconf_get_key_filesys(2375) > _vconf_get_key_filesys(db/menu_widget/language) step(-21) failed(13 / Permission denied) retry(0) 
+03-28 03:03:18.185+0900 E/VCONF   ( 7418): vconf.c: _vconf_get_key(2411) > _vconf_get_key(db/menu_widget/language) step(-21) failed(13 / Permission denied)
+03-28 03:03:18.185+0900 E/VCONF   ( 7418): vconf.c: vconf_get_str(2891) > vconf_get_str(7418) : db/menu_widget/language error
+03-28 03:03:18.185+0900 E/PKGMGR_INFO( 7418): pkgmgrinfo_private.c: __convert_system_locale_to_manifest_locale(354) > syslocale is null
+03-28 03:03:18.195+0900 E/E17     ( 2840): e_border.c: e_border_show(2088) > BD_SHOW(0x02600002)
+03-28 03:03:18.205+0900 D/APP_CORE( 7376): appcore.c: __aul_handler(587) > [APP 7376]     AUL event: AUL_START
+03-28 03:03:18.205+0900 I/APP_CORE( 7376): appcore-efl.c: __do_app(496) > [APP 7376] Event: RESET State: CREATED
+03-28 03:03:18.205+0900 D/APP_CORE( 7376): appcore-efl.c: __do_app(527) > [APP 7376] RESET
+03-28 03:03:18.205+0900 D/LAUNCH  ( 7376): appcore-efl.c: __do_app(529) > [example:Application:reset:start]
+03-28 03:03:18.205+0900 D/APP_CORE( 7376): appcore-efl.c: __do_app(533) > [__SUSPEND__] reset case
+03-28 03:03:18.205+0900 D/APP_CORE( 7376): appcore-efl.c: __appcore_efl_exit_from_suspend(380) > [__SUSPEND__]
+03-28 03:03:18.205+0900 I/CAPI_APPFW_APPLICATION( 7376): app_main.c: _ui_app_appcore_reset(722) > app_appcore_reset
+03-28 03:03:18.205+0900 D/AUL     ( 7376): service.c: __set_bundle(186) > __set_bundle
+03-28 03:03:18.205+0900 D/LAUNCH  ( 7376): appcore-efl.c: __do_app(544) > [example:Application:reset:done]
+03-28 03:03:18.205+0900 D/APP_CORE( 7376): appcore.c: __aul_handler(608) > [SECURE_LOG] caller_appid : (null)
+03-28 03:03:18.205+0900 E/EFL     ( 7376): edje<7376> lib/edje/edje_embryo.c:4134 _edje_embryo_test_run() You are running Embryo->EDC->Embryo with script program '_p24';
+03-28 03:03:18.205+0900 E/EFL     ( 7376): By the power of Grayskull, your previous Embryo stack is now broken!
+03-28 03:03:18.205+0900 E/EFL     ( 7376): edje<7376> lib/edje/edje_embryo.c:4134 _edje_embryo_test_run() You are running Embryo->EDC->Embryo with script program '_p24';
+03-28 03:03:18.205+0900 E/EFL     ( 7376): By the power of Grayskull, your previous Embryo stack is now broken!
+03-28 03:03:18.205+0900 E/EFL     ( 7376): edje<7376> lib/edje/edje_embryo.c:4134 _edje_embryo_test_run() You are running Embryo->EDC->Embryo with script program '_p24';
+03-28 03:03:18.205+0900 E/EFL     ( 7376): By the power of Grayskull, your previous Embryo stack is now broken!
+03-28 03:03:18.205+0900 E/EFL     ( 7376): edje<7376> lib/edje/edje_embryo.c:4134 _edje_embryo_test_run() You are running Embryo->EDC->Embryo with script program '_p24';
+03-28 03:03:18.205+0900 E/EFL     ( 7376): By the power of Grayskull, your previous Embryo stack is now broken!
+03-28 03:03:18.205+0900 E/EFL     ( 7376): edje<7376> lib/edje/edje_embryo.c:4134 _edje_embryo_test_run() You are running Embryo->EDC->Embryo with script program '_p24';
+03-28 03:03:18.205+0900 E/EFL     ( 7376): By the power of Grayskull, your previous Embryo stack is now broken!
+03-28 03:03:18.205+0900 W/PROCESSMGR( 2840): e_mod_processmgr.c: _e_mod_processmgr_send_mDNIe_action(612) > [PROCESSMGR] =====================> Broadcast mDNIeStatus : PID=7376
+03-28 03:03:18.205+0900 E/EFL     ( 2840): eo<2840> lib/eo/eo.c:676 _eo_call_resolve() in lib/edje/edje_object.eo.c:316: func 'edje_obj_signal_emit' (410) could not be resolved for class 'Evas_Object_Smart'.
+03-28 03:03:18.205+0900 E/EFL     ( 2840): eo<2840> lib/eo/eo.c:676 _eo_call_resolve() in lib/edje/edje_object.eo.c:316: func 'edje_obj_signal_emit' (410) could not be resolved for class 'Evas_Object_Smart'.
+03-28 03:03:18.205+0900 W/APP_CORE( 7376): appcore-efl.c: __show_cb(914) > [EVENT_TEST][EVENT] GET SHOW EVENT!!!. WIN:2600002
+03-28 03:03:18.205+0900 D/APP_CORE( 7376): appcore-efl.c: __add_win(753) > [EVENT_TEST][EVENT] __add_win WIN:2600002
+03-28 03:03:18.205+0900 D/APP_CORE( 7376): appcore-group.c: appcore_group_attach(13) > appcore_group_attach
+03-28 03:03:18.205+0900 D/AUL     ( 7376): app_sock.c: __app_send_raw(285) > pid(-2) : cmd(34)
+03-28 03:03:18.215+0900 D/INDICATOR( 2915): main.c: _property_changed_cb(432) > UNSNIFF API 1200003
+03-28 03:03:18.215+0900 D/INDICATOR( 2915): util.c: util_signal_emit_by_win(116) > emission bg.opaque
+03-28 03:03:18.215+0900 D/INDICATOR( 2915): main.c: _rotate_window(229) > Indicator angle is 0 degree
+03-28 03:03:18.215+0900 D/INDICATOR( 2915): box.c: box_get_right_item_count(242) > system cnt : 0, minictrl cnt : 0, noti cnt : 0
+03-28 03:03:18.215+0900 D/INDICATOR( 2915): box.c: box_get_right_item_count(243) > system_cnt + minictrl_cnt + noti_cnt = 0
+03-28 03:03:18.215+0900 D/INDICATOR( 2915): main.c: _rotate_window(252) > port :: hide more icon
+03-28 03:03:18.245+0900 D/AUL_PAD ( 2980): launchpad.c: __send_result_to_caller(287) > -- now wait app mainloop creation --
+03-28 03:03:18.245+0900 W/AUL     ( 2821): app_signal.c: aul_send_app_launch_request_signal(433) > send_app_launch_signal, pid: 7376, appid: org.example.example
+03-28 03:03:18.245+0900 D/AUL     ( 2821): simple_util.c: __trm_app_info_send_socket(325) > __trm_app_info_send_socket
+03-28 03:03:18.245+0900 E/AUL     ( 2821): simple_util.c: __trm_app_info_send_socket(330) > access
+03-28 03:03:18.245+0900 D/AUL_AMD ( 2821): amd_launch.c: _start_app(2700) > add app group info
+03-28 03:03:18.245+0900 E/AUL     ( 2821): amd_app_group.c: app_group_start_app(1032) > app_group_start_app
+03-28 03:03:18.245+0900 D/AUL_AMD ( 2821): amd_status.c: _status_add_app_info_list(427) > pid(7376) appid(org.example.example) pkgid(org.example.example) comp(uiapp)
+03-28 03:03:18.245+0900 D/AUL_AMD ( 2821): amd_request.c: __request_handler(838) > __request_handler: 15
+03-28 03:03:18.245+0900 D/PKGMGR_INFO( 2821): pkgmgrinfo_appinfo.c: pkgmgrinfo_appinfo_filter_foreach_appinfo(3617) > [SECURE_LOG] where = package_app_info.app_exec='/opt/usr/apps/org.example.example/bin/example' and package_app_info.app_disable IN ('false','False')
+03-28 03:03:18.245+0900 D/PKGMGR_INFO( 2821): pkgmgrinfo_appinfo.c: pkgmgrinfo_appinfo_filter_foreach_appinfo(3623) > [SECURE_LOG] query = select DISTINCT package_app_info.*, package_app_localized_info.app_locale, package_app_localized_info.app_label, package_app_localized_info.app_icon from package_app_info LEFT OUTER JOIN package_app_localized_info ON package_app_info.app_id=package_app_localized_info.app_id and package_app_localized_info.app_locale IN ('No Locale', 'en-us') LEFT OUTER JOIN package_app_app_svc ON package_app_info.app_id=package_app_app_svc.app_id LEFT OUTER JOIN package_app_app_category ON package_app_info.app_id=package_app_app_category.app_id where package_app_info.app_exec='/opt/usr/apps/org.example.example/bin/example' and package_app_info.app_disable IN ('false','False')
+03-28 03:03:18.245+0900 D/AUL_AMD ( 2821): amd_status.c: _status_get_appid_bypid(971) > [SECURE_LOG] appid for 7376 is org.example.example
+03-28 03:03:18.245+0900 D/AUL_AMD ( 2821): amd_request.c: __request_handler(1039) > APP_GET_APPID_BYPID : 7376 : 0
+03-28 03:03:18.245+0900 D/AUL_AMD ( 2821): amd_request.c: __request_handler(838) > __request_handler: 34
+03-28 03:03:18.245+0900 D/RESOURCED( 2912): proc-main.c: resourced_proc_status_change(876) > [SECURE_LOG] launch request org.example.example, 7376
+03-28 03:03:18.245+0900 D/RESOURCED( 2912): proc-main.c: resourced_proc_status_change(878) > [SECURE_LOG] launch request org.example.example with pkgname
+03-28 03:03:18.245+0900 E/RESOURCED( 2912): proc-main.c: proc_add_program_list(231) > not found ppi : org.example.example
+03-28 03:03:18.245+0900 D/RESOURCED( 2912): proc-main.c: resourced_proc_status_change(888) > available memory = 296
+03-28 03:03:18.245+0900 D/AUL     ( 3004): app_sock.c: __app_send_cmd_with_result(643) > recv result  = 28
+03-28 03:03:18.305+0900 D/APP_CORE( 7376): appcore.c: __prt_ltime(236) > [APP 7376] first idle after reset: 168 msec
+03-28 03:03:18.385+0900 D/LAUNCH  ( 7575): appcore-efl.c: appcore_efl_main(1692) > [crash-popup:Application:main:done]
+03-28 03:03:18.385+0900 D/PKGMGR_INFO( 7575): pkgmgrinfo_appinfo.c: pkgmgrinfo_appinfo_filter_foreach_appinfo(3617) > [SECURE_LOG] where = package_app_info.app_exec='/usr/apps/org.tizen.crash-popup/bin/crash-popup' and package_app_info.app_disable IN ('false','False')
+03-28 03:03:18.385+0900 D/PKGMGR_INFO( 7575): pkgmgrinfo_appinfo.c: pkgmgrinfo_appinfo_filter_foreach_appinfo(3623) > [SECURE_LOG] query = select DISTINCT package_app_info.*, package_app_localized_info.app_locale, package_app_localized_info.app_label, package_app_localized_info.app_icon from package_app_info LEFT OUTER JOIN package_app_localized_info ON package_app_info.app_id=package_app_localized_info.app_id and package_app_localized_info.app_locale IN ('No Locale', 'en-us') LEFT OUTER JOIN package_app_app_svc ON package_app_info.app_id=package_app_app_svc.app_id LEFT OUTER JOIN package_app_app_category ON package_app_info.app_id=package_app_app_category.app_id where package_app_info.app_exec='/usr/apps/org.tizen.crash-popup/bin/crash-popup' and package_app_info.app_disable IN ('false','False')
+03-28 03:03:18.385+0900 D/AUL     ( 7575): pkginfo.c: aul_app_get_appid_bypid(241) > [SECURE_LOG] appid for 7575 is org.tizen.crash-popup
+03-28 03:03:18.385+0900 E/E17     ( 2840): e_border.c: e_border_hide(2248) > BD_HIDE(0x01200003), visible:1
+03-28 03:03:18.395+0900 D/APP_CORE( 7376): appcore-efl.c: __update_win(799) > [EVENT_TEST][EVENT] __update_win WIN:2600002 fully_obscured 0
+03-28 03:03:18.395+0900 D/APP_CORE( 7376): appcore-efl.c: __visibility_cb(974) > bvisibility 1, b_active -1
+03-28 03:03:18.395+0900 D/APP_CORE( 7376): appcore-efl.c: __visibility_cb(977) >  Go to Resume state
+03-28 03:03:18.395+0900 I/APP_CORE( 7376): appcore-efl.c: __do_app(496) > [APP 7376] Event: RESUME State: CREATED
+03-28 03:03:18.395+0900 D/LAUNCH  ( 7376): appcore-efl.c: __do_app(597) > [example:Application:resume:start]
+03-28 03:03:18.395+0900 D/APP_CORE( 7376): appcore-efl.c: __do_app(601) > [__SUSPEND__] resume case
+03-28 03:03:18.395+0900 D/APP_CORE( 7376): appcore-efl.c: __appcore_efl_exit_from_suspend(380) > [__SUSPEND__]
+03-28 03:03:18.395+0900 D/APP_CORE( 7376): appcore-efl.c: __do_app(607) > [APP 7376] RESUME
+03-28 03:03:18.395+0900 D/APP_CORE( 5829): appcore-efl.c: __update_win(799) > [EVENT_TEST][EVENT] __update_win WIN:1200003 fully_obscured 1
+03-28 03:03:18.395+0900 D/APP_CORE( 5829): appcore-efl.c: __visibility_cb(974) > bvisibility 0, b_active 1
+03-28 03:03:18.395+0900 D/APP_CORE( 5829): appcore-efl.c: __visibility_cb(989) >  Go to Pasue state 
+03-28 03:03:18.395+0900 I/APP_CORE( 5829): appcore-efl.c: __do_app(496) > [APP 5829] Event: PAUSE State: RUNNING
+03-28 03:03:18.395+0900 D/APP_CORE( 5829): appcore-efl.c: __do_app(565) > [APP 5829] PAUSE
+03-28 03:03:18.395+0900 I/CAPI_APPFW_APPLICATION( 5829): app_main.c: _ui_app_appcore_pause(688) > app_appcore_pause
+03-28 03:03:18.395+0900 D/LAUNCH  ( 5829): mf-main.c: __mf_main_stop_app(860) > [myfile:Application:__mf_main_stop_app:IN]
+03-28 03:03:18.395+0900 D/LAUNCH  ( 5829): mf-main.c: __mf_main_stop_app(873) > [myfile:Application:__mf_main_stop_app:OUT]
+03-28 03:03:18.395+0900 D/APP_CORE( 5829): appcore-efl.c: __trm_app_info_send_socket(239) > __trm_app_info_send_socket
+03-28 03:03:18.395+0900 E/APP_CORE( 5829): appcore-efl.c: __trm_app_info_send_socket(242) > access
+03-28 03:03:18.395+0900 D/AUL_AMD ( 2821): amd_status.c: _status_update_app_info_list(456) > pid(5829) status(4)
+03-28 03:03:18.395+0900 D/AUL_AMD ( 2821): amd_status.c: _status_update_app_info_list(468) > pid(5829) appid(org.tizen.myfile) pkgid(org.tizen.myfile) status(4)
+03-28 03:03:18.395+0900 D/AUL     ( 2821): amd_app_group.c: __set_fg_flag(180) > send_signal BG org.tizen.myfile
+03-28 03:03:18.395+0900 W/AUL     ( 2821): app_signal.c: aul_send_app_status_change_signal(591) > send_app_status_change_signal, pid: 5829, appid: org.tizen.myfile, status: bg
+03-28 03:03:18.395+0900 D/RESOURCED( 2912): heart-cpu.c: heart_cpu_background_state(230) > heart_cpu_background_state : pid = 5829, appname = org.tizen.myfile, pkgname = org.tizen.myfile
+03-28 03:03:18.395+0900 D/RESOURCED( 2912): cpu.c: cpu_background_state(233) > cpu_background_state : pid = 5829, appname = org.tizen.myfile
+03-28 03:03:18.395+0900 D/RESOURCED( 2912): cgroup.c: cgroup_write_node(134) > [SECURE_LOG] cgroup_buf /sys/fs/cgroup/cpu/background/cgroup.procs, value 5829
+03-28 03:03:18.395+0900 D/RESOURCED( 2912): vmpressure-lowmem-handler.c: lowmem_move_memcgroup(1670) > pid: 5829, proc_name: org.tizen.myfile, cg_name: previous, oom_score_adj: 300
+03-28 03:03:18.395+0900 D/RESOURCED( 2912): cgroup.c: cgroup_write_node(134) > [SECURE_LOG] cgroup_buf /sys/fs/cgroup/memory/previous//cgroup.procs, value 5829
+03-28 03:03:18.395+0900 I/APP_CORE( 7376): appcore-efl.c: __do_app(612) > Legacy lifecycle: 0
+03-28 03:03:18.395+0900 I/APP_CORE( 7376): appcore-efl.c: __do_app(614) > [APP 7376] Initial Launching, call the resume_cb
+03-28 03:03:18.395+0900 I/CAPI_APPFW_APPLICATION( 7376): app_main.c: _ui_app_appcore_resume(705) > app_appcore_resume
+03-28 03:03:18.395+0900 D/LAUNCH  ( 7376): appcore-efl.c: __do_app(636) > [example:Application:resume:done]
+03-28 03:03:18.395+0900 D/LAUNCH  ( 7376): appcore-efl.c: __do_app(638) > [example:Application:Launching:done]
+03-28 03:03:18.395+0900 D/APP_CORE( 7376): appcore-efl.c: __trm_app_info_send_socket(239) > __trm_app_info_send_socket
+03-28 03:03:18.395+0900 E/APP_CORE( 7376): appcore-efl.c: __trm_app_info_send_socket(242) > access
+03-28 03:03:18.395+0900 D/AUL_AMD ( 2821): amd_launch.c: __e17_status_handler(2891) > pid(7376) status(3)
+03-28 03:03:18.395+0900 D/AUL_AMD ( 2821): amd_key.c: _key_ungrab(265) > _key_ungrab, win : a00002
+03-28 03:03:18.395+0900 W/AUL_AMD ( 2821): amd_key.c: _key_ungrab(269) > fail(-1) to ungrab key(XF86Back)
+03-28 03:03:18.395+0900 W/AUL_AMD ( 2821): amd_launch.c: __e17_status_handler(2895) > back key ungrab error
+03-28 03:03:18.395+0900 D/AUL_AMD ( 2821): amd_status.c: _status_update_app_info_list(456) > pid(7376) status(3)
+03-28 03:03:18.395+0900 D/AUL_AMD ( 2821): amd_status.c: _status_update_app_info_list(468) > pid(7376) appid(org.example.example) pkgid(org.example.example) status(3)
+03-28 03:03:18.395+0900 D/AUL     ( 2821): amd_app_group.c: __set_fg_flag(172) > send_signal FG org.example.example
+03-28 03:03:18.395+0900 W/AUL     ( 2821): app_signal.c: aul_send_app_status_change_signal(591) > send_app_status_change_signal, pid: 7376, appid: org.example.example, status: fg
+03-28 03:03:18.395+0900 D/RESOURCED( 2912): proc-main.c: resourced_proc_status_change(843) > [SECURE_LOG] set foreground : 7376
+03-28 03:03:18.395+0900 D/RESOURCED( 2912): vmpressure-lowmem-handler.c: lowmem_move_memcgroup(1670) > pid: 7376, proc_name: org.example.example, cg_name: foreground, oom_score_adj: 200
+03-28 03:03:18.395+0900 D/RESOURCED( 2912): cgroup.c: cgroup_write_node(134) > [SECURE_LOG] cgroup_buf /sys/fs/cgroup/memory/foreground//cgroup.procs, value 7376
+03-28 03:03:18.445+0900 D/RESOURCED( 2912): heart-cpu.c: heart_cpu_foreground_state(201) > heart_cpu_foreground_state : pid = 7376, appname = org.example.example, pkgname = org.example.example
+03-28 03:03:18.445+0900 D/RESOURCED( 2912): cpu.c: cpu_foreground_state(221) > cpu_foreground_state : pid = 7376, appname = org.example.example
+03-28 03:03:18.445+0900 D/RESOURCED( 2912): cgroup.c: cgroup_write_node(134) > [SECURE_LOG] cgroup_buf /sys/fs/cgroup/cpu/cgroup.procs, value 7376
+03-28 03:03:18.445+0900 I/RESOURCED( 2912): memcontrol.c: memcg_get_anon_usage(165) > get mem usage anon from /sys/fs/cgroup/memory/foreground/memory.stat
+03-28 03:03:18.445+0900 I/RESOURCED( 2912): vmpressure-lowmem-handler.c: lowmem_press_cgroup_handler(1775) > anon page 0 MB < medium threshold 0 MB
+03-28 03:03:18.475+0900 D/APP_CORE( 7575): appcore-efl.c: __before_loop(1114) > elm_config_preferred_engine_set is not called
+03-28 03:03:18.475+0900 D/APP_CORE( 7575): appcore.c: appcore_init(738) > [SECURE_LOG] dir : /usr/apps/org.tizen.crash-popup/res/locale
+03-28 03:03:18.475+0900 D/APP_CORE( 7575): appcore-i18n.c: update_region(94) > *****appcore setlocale=en_US.UTF-8
+03-28 03:03:18.485+0900 D/APP_CORE( 7575): appcore.c: _appcore_init_suspend_dbus_handler(910) > [__SUSPEND__] suspend signal initialized
+03-28 03:03:18.485+0900 D/APP_CORE( 7575): appcore-efl.c: __before_loop(1134) > [SECURE_LOG] [__SUSPEND__] appcore initialized, appcore addr: 0xb7721520
+03-28 03:03:18.485+0900 D/LAUNCH  ( 7575): appcore-efl.c: __before_loop(1136) > [crash-popup:Platform:appcore_init:done]
+03-28 03:03:18.525+0900 D/APP_CORE( 7575): appcore-i18n.c: update_region(94) > *****appcore setlocale=en_US.UTF-8
+03-28 03:03:18.525+0900 D/LAUNCH  ( 7575): appcore-efl.c: __before_loop(1154) > [crash-popup:Application:create:done]
+03-28 03:03:18.525+0900 D/APP_CORE( 7575): appcore-efl.c: __check_wm_rotation_support(835) > Disable window manager rotation
+03-28 03:03:18.555+0900 W/E17_EXTRA_MODULES( 2840): e_mod_comp.c: _e_mod_comp_win_add(1727) > [CW Creating Fail!!(Attributes get)] Win:02c00002, BD:(nil), POP:(nil), MENU:(nil)
+03-28 03:03:18.565+0900 D/AUL_AMD ( 2821): amd_launch.c: __e17_status_handler(2910) > pid(7376) status(0)
+03-28 03:03:18.795+0900 E/RESOURCED( 2912): heart-abnormal.c: heart_abnormal_process_crashed(77) > Failed: dbus_message_get_args()
+03-28 03:03:19.245+0900 D/AUL_PAD ( 2980): launchpad.c: __send_launchpad_loader(429) > Prepare another candidate process
+03-28 03:03:19.245+0900 D/AUL_PAD ( 7604): sigchild.h: __signal_unblock_sigchld(224) > SIGCHLD unblocked
+03-28 03:03:19.255+0900 D/AUL_PAD ( 2980): sigchild.h: __send_app_launch_signal(131) > send launch signal done
+03-28 03:03:19.255+0900 E/RESOURCED( 2912): resourced-dbus.c: resourced_dbus_system_hash_drop_busname(324) > Does not exist in busname hash: :1.431
+03-28 03:03:19.745+0900 D/AUL_AMD ( 2821): amd_request.c: __add_history_handler(385) > [SECURE_LOG] add rua history org.example.example /opt/usr/apps/org.example.example/bin/example
+03-28 03:03:19.745+0900 D/RUA     ( 2821): rua.c: rua_add_history(179) > rua_add_history start
+03-28 03:03:19.755+0900 D/RUA     ( 2821): rua.c: rua_add_history(247) > rua_add_history ok
+03-28 03:03:19.995+0900 E/PKGMGR_SERVER( 7413): pkgmgr-server.c: exit_server(1240) > exit_server Start [backend_status=1, queue_status=1, drm_status=1] 
+03-28 03:03:19.995+0900 E/PKGMGR_SERVER( 7413): pkgmgr-server.c: main(2265) > package manager server terminated.
+03-28 03:03:20.295+0900 D/AUL_PAD ( 7604): launchpad_loader.c: main(588) > sleeping 1 sec...
+03-28 03:03:20.295+0900 D/AUL_PAD ( 7604): preload.h: __preload_init(52) > max_cmdline_size = 1053
+03-28 03:03:20.295+0900 D/AUL_PAD ( 7604): preload.h: __preload_init(65) > preload /usr/lib/libappcore-efl.so.1# - handle : b87d3760
+03-28 03:03:20.295+0900 D/AUL_PAD ( 7604): preload.h: __preload_init(69) > get pre-initialization function
+03-28 03:03:20.295+0900 D/AUL_PAD ( 7604): preload.h: __preload_init(73) > get shutdown function
+03-28 03:03:20.295+0900 D/AUL_PAD ( 7604): preload.h: __preload_init(65) > preload /usr/lib/libappcore-common.so.1# - handle : b87d3a40
+03-28 03:03:20.295+0900 D/AUL_PAD ( 7604): preload.h: __preload_init(65) > preload /usr/lib/libcapi-appfw-application.so.0# - handle : b87d5640
+03-28 03:03:20.295+0900 D/AUL_PAD ( 7604): preload.h: __preload_init(69) > get pre-initialization function
+03-28 03:03:20.295+0900 D/AUL_PAD ( 7604): preload.h: __preload_init(73) > get shutdown function
+03-28 03:03:20.295+0900 D/AUL_PAD ( 7604): preexec.h: __preexec_init(76) > preexec start
+03-28 03:03:20.295+0900 D/AUL_PAD ( 7604): launchpad_loader.c: main(599) > [candidate] Another candidate process was forked.
+03-28 03:03:20.295+0900 D/AUL     ( 7604): process_pool.c: __connect_to_launchpad(107) > [launchpad] enter, type: 0
+03-28 03:03:20.295+0900 D/AUL     ( 7604): process_pool.c: __connect_to_launchpad(119) > connect to /tmp/.launchpad-type0
+03-28 03:03:20.295+0900 D/AUL     ( 7604): process_pool.c: __connect_to_launchpad(132) > send(7604) : 4
+03-28 03:03:20.295+0900 D/AUL     ( 7604): process_pool.c: __connect_to_launchpad(139) > [SECURE_LOG] [launchpad] done, connect fd: 9
+03-28 03:03:20.305+0900 D/AUL_PAD ( 2980): launchpad.c: main(665) > pfds[LAUNCH_PAD].revent  : 0x0
+03-28 03:03:20.305+0900 D/AUL_PAD ( 2980): launchpad.c: main(667) > pfds[POOL_TYPE + 0].revents : 0x1
+03-28 03:03:20.305+0900 D/AUL_PAD ( 2980): launchpad.c: main(668) > pfds[CANDIDATE_TYPE + 0].revents : 0x0
+03-28 03:03:20.305+0900 D/AUL_PAD ( 2980): launchpad.c: main(667) > pfds[POOL_TYPE + 1].revents : 0x0
+03-28 03:03:20.305+0900 D/AUL_PAD ( 2980): launchpad.c: main(668) > pfds[CANDIDATE_TYPE + 1].revents : 0x0
+03-28 03:03:20.305+0900 D/AUL_PAD ( 2980): launchpad.c: main(667) > pfds[POOL_TYPE + 2].revents : 0x0
+03-28 03:03:20.305+0900 D/AUL_PAD ( 2980): launchpad.c: main(668) > pfds[CANDIDATE_TYPE + 2].revents : 0x0
+03-28 03:03:20.305+0900 D/AUL_PAD ( 2980): launchpad.c: main(707) > pfds[POOL_TYPE + 0].revents & POLLIN
+03-28 03:03:20.305+0900 D/AUL_PAD ( 2980): launchpad.c: main(719) > [SECURE_LOG] Type 0 candidate process was connected, pid: 7604
+03-28 03:03:20.355+0900 D/AUL_PAD ( 7604): launchpad_loader.c: main(631) > [candidate] elm init, returned: 1
+03-28 03:03:20.365+0900 D/AUL_PAD ( 7604): launchpad_loader.c: main(678) > theme path: /usr/share/elementary/themes/tizen-2.4-mobile-HD.edj
+03-28 03:03:20.365+0900 D/AUL_PAD ( 7604): launchpad_loader.c: main(693) > [candidate] ecore handler add
+03-28 03:03:20.365+0900 D/AUL_PAD ( 7604): launchpad_loader.c: main(707) > [candidate] ecore main loop begin
+03-28 03:03:21.115+0900 D/PROCESSMGR( 2840): e_mod_processmgr.c: _e_mod_processmgr_anr_ping(499) > [PROCESSMGR] ev_win=0x40002f  register trigger_timer!  pointed_win=0x400863 
+03-28 03:03:21.545+0900 E/EFL     ( 7575): eldbus<7575> lib/eldbus/eldbus_core.c:1005 _connection_get() Error connecting to bus of type 1. error name: org.freedesktop.DBus.Error.NoServer error message: Failed to connect to socket /tmp/dbus-HhTSexwzvL: Connection refused
+03-28 03:03:21.545+0900 E/EFL     ( 7575): <7575> lib/eldbus/eldbus_core.c:1068 eldbus_connection_get() safety check failed: conn == NULL
+03-28 03:03:21.545+0900 E/EFL     ( 7575): elementary<7575> elm_atspi_bridge.c:4750 _elm_atspi_bridge_eo_base_constructor() Unable to connect to Session Bus
+03-28 03:03:21.545+0900 D/APP_CORE( 7575): appcore.c: __aul_handler(587) > [APP 7575]     AUL event: AUL_START
+03-28 03:03:21.545+0900 I/APP_CORE( 7575): appcore-efl.c: __do_app(496) > [APP 7575] Event: RESET State: CREATED
+03-28 03:03:21.545+0900 D/APP_CORE( 7575): appcore-efl.c: __do_app(527) > [APP 7575] RESET
+03-28 03:03:21.545+0900 D/LAUNCH  ( 7575): appcore-efl.c: __do_app(529) > [crash-popup:Application:reset:start]
+03-28 03:03:21.545+0900 D/APP_CORE( 7575): appcore-efl.c: __do_app(533) > [__SUSPEND__] reset case
+03-28 03:03:21.545+0900 D/APP_CORE( 7575): appcore-efl.c: __appcore_efl_exit_from_suspend(380) > [__SUSPEND__]
+03-28 03:03:21.545+0900 E/SYSPOPUP( 7575): syspopup_core.c: _syspopup_get_name_from_bundle(228) > syspopup permission error
+03-28 03:03:21.545+0900 E/SYSPOPUP( 7575): syspopup_core.c: _syspopup_get_name_from_bundle(228) > syspopup permission error
+03-28 03:03:21.545+0900 E/SYSPOPUP( 7575): syspopup_efl.c: syspopup_create(95) > popup_name or handler is NULL
+03-28 03:03:21.545+0900 D/LAUNCH  ( 7575): appcore-efl.c: __do_app(544) > [crash-popup:Application:reset:done]
+03-28 03:03:21.545+0900 D/APP_CORE( 7575): appcore.c: __aul_handler(608) > [SECURE_LOG] caller_appid : (null)
+03-28 03:03:21.615+0900 D/AUL     ( 7575): app_sock.c: __app_send_raw_with_noreply(384) > pid(-2) : cmd(22)
+03-28 03:03:21.615+0900 D/AUL_AMD ( 2821): amd_request.c: __request_handler(838) > __request_handler: 22
+03-28 03:03:21.615+0900 W/AUL_AMD ( 2821): amd_request.c: __request_handler(1056) > app status : 5
+03-28 03:03:21.615+0900 D/AUL_AMD ( 2821): amd_status.c: _status_update_app_info_list(456) > pid(7575) status(5)
+03-28 03:03:21.615+0900 D/APP_CORE( 7575): appcore.c: _appcore_fini_suspend_dbus_handler(944) > [__SUSPEND__] suspend signal finalized
+03-28 03:03:21.615+0900 E/EFL     ( 7575): eo<7575> lib/eo/eo_ptr_indirection.x:294 _eo_obj_pointer_get() obj_id 0x8000542b is not pointing to a valid object. Maybe it has already been freed.
+03-28 03:03:21.615+0900 E/EFL     ( 7575): eo<7575> lib/eo/eo.c:485 _eo_do_internal() Obj (0x8000542b) is an invalid ref.
+03-28 03:03:22.115+0900 D/PROCESSMGR( 2840): e_mod_processmgr.c: _e_mod_processmgr_anr_ping_begin_handler(439) > [PROCESSMGR] ecore_x_netwm_ping_send to the client_win=0x2600002
+03-28 03:03:22.375+0900 D/AUL_AMD ( 2821): amd_status.c: __app_terminate_timer_cb(442) > pid(7191)
+03-28 03:03:22.375+0900 W/AUL_AMD ( 2821): amd_status.c: __app_terminate_timer_cb(446) > send SIGKILL: No such process
+03-28 03:03:22.375+0900 D/AUL_AMD ( 2821): amd_status.c: __app_terminate_timer_cb(442) > pid(7191)
+03-28 03:03:22.375+0900 W/AUL_AMD ( 2821): amd_status.c: __app_terminate_timer_cb(446) > send SIGKILL: No such process
+03-28 03:03:23.485+0900 D/APP_CORE( 5829): appcore-efl.c: __appcore_memory_flush_cb(387) > [__SUSPEND__]
+03-28 03:03:23.485+0900 I/APP_CORE( 5829): appcore-efl.c: __do_app(496) > [APP 5829] Event: MEM_FLUSH State: PAUSED
+03-28 03:03:23.485+0900 D/APP_CORE( 5829): appcore-efl.c: __appcore_memory_flush_cb(396) > [__SUSPEND__] flush case
+03-28 03:03:23.485+0900 D/RESOURCED( 2912): proc-monitor.c: proc_dbus_suspend_hint(1106) > received susnepd hint : pid 5829
+03-28 03:03:23.485+0900 D/APP_CORE( 5829): appcore.c: _appcore_request_to_suspend(532) > [SECURE_LOG] [__SUSPEND__] Send suspend hint, pid: 5829
+03-28 03:03:23.485+0900 D/APP_CORE( 5829): appcore-efl.c: __appcore_efl_prepare_to_suspend(362) > [__SUSPEND__]
+03-28 03:03:26.935+0900 E/CAPI_NETWORK_WIFI( 2915): libnetwork.c: _wifi_check_feature_supported(1370) > http://tizen.org/feature/network.wifi feature is disabled
+03-28 03:03:26.935+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(279) > wifi initialize is fail : -1073741822 (0x8001acd7)
+03-28 03:03:26.935+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(294) > Interval is updated to 10.000000
+03-28 03:03:26.935+0900 E/INDICATOR( 2915): 
+03-28 03:03:27.125+0900 D/PROCESSMGR( 2840): e_mod_processmgr.c: _e_mod_processmgr_anr_ping_confirm_handler(360) > [PROCESSMGR] last_pointed_win=0x400863 bd->visible=1
+03-28 03:03:34.935+0900 D/RESOURCED( 2912): logging.c: logging_send_signal_to_data(1097) > logging timer callback function start
+03-28 03:03:34.935+0900 I/RESOURCED( 2912): logging.c: logging_send_signal_to_data(1106) > send signal to logging data thread
+03-28 03:03:34.935+0900 D/RESOURCED( 2912): logging.c: logging_send_signal_to_update(1177) > logging timer callback function start
+03-28 03:03:34.935+0900 I/RESOURCED( 2912): logging.c: logging_send_signal_to_update(1186) > send signal to logging update thread
+03-28 03:03:46.955+0900 E/CAPI_NETWORK_WIFI( 2915): libnetwork.c: _wifi_check_feature_supported(1370) > http://tizen.org/feature/network.wifi feature is disabled
+03-28 03:03:46.955+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(279) > wifi initialize is fail : -1073741822 (0x8001acd7)
+03-28 03:03:46.955+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(294) > Interval is updated to 10.000000
+03-28 03:03:46.955+0900 E/INDICATOR( 2915): 
+03-28 03:04:00.705+0900 D/INDICATOR( 2915): clock.c: indicator_get_apm_by_region(666) > indicator_get_apm_by_region[666]	 "TimeZone is Asia/Seoul"
+03-28 03:04:00.705+0900 D/INDICATOR( 2915): clock.c: indicator_get_time_by_region(780) > indicator_get_time_by_region[780]	 "BestPattern is h"
+03-28 03:04:00.705+0900 D/INDICATOR( 2915): clock.c: indicator_get_time_by_region(781) > indicator_get_time_by_region[781]	 "TimeZone is Asia/Seoul"
+03-28 03:04:00.705+0900 D/INDICATOR( 2915): clock.c: indicator_get_time_by_region(801) > indicator_get_time_by_region[801]	 "DATE & TIME is en_US 3:04 4 h"
+03-28 03:04:00.705+0900 D/INDICATOR( 2915): clock.c: indicator_get_time_by_region(803) > indicator_get_time_by_region[803]	 "24H :: Before change 3:04"
+03-28 03:04:00.705+0900 D/INDICATOR( 2915): clock.c: indicator_get_time_by_region(810) > indicator_get_time_by_region[810]	 "24H :: After change 3&#x2236;04"
+03-28 03:04:00.705+0900 D/INDICATOR( 2915): clock.c: indicator_clock_changed_cb(295) > [CLOCK MODULE] Timer Status : -2146959357 Time: <font_size=33>3&#x2236;04</font_size> <font_size=32>AM</font_size></font>
+03-28 03:04:06.965+0900 E/CAPI_NETWORK_WIFI( 2915): libnetwork.c: _wifi_check_feature_supported(1370) > http://tizen.org/feature/network.wifi feature is disabled
+03-28 03:04:06.965+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(279) > wifi initialize is fail : -1073741822 (0x8001acd7)
+03-28 03:04:06.965+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(294) > Interval is updated to 10.000000
+03-28 03:04:06.965+0900 E/INDICATOR( 2915): 
+03-28 03:04:26.985+0900 E/CAPI_NETWORK_WIFI( 2915): libnetwork.c: _wifi_check_feature_supported(1370) > http://tizen.org/feature/network.wifi feature is disabled
+03-28 03:04:26.985+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(279) > wifi initialize is fail : -1073741822 (0x8001acd7)
+03-28 03:04:26.985+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(294) > Interval is updated to 10.000000
+03-28 03:04:26.985+0900 E/INDICATOR( 2915): 
+03-28 03:04:34.974+0900 D/RESOURCED( 2912): logging.c: logging_send_signal_to_data(1097) > logging timer callback function start
+03-28 03:04:34.974+0900 I/RESOURCED( 2912): logging.c: logging_send_signal_to_data(1106) > send signal to logging data thread
+03-28 03:04:34.974+0900 D/RESOURCED( 2912): logging.c: logging_send_signal_to_update(1177) > logging timer callback function start
+03-28 03:04:34.974+0900 I/RESOURCED( 2912): logging.c: logging_send_signal_to_update(1186) > send signal to logging update thread
+03-28 03:04:47.014+0900 E/CAPI_NETWORK_WIFI( 2915): libnetwork.c: _wifi_check_feature_supported(1370) > http://tizen.org/feature/network.wifi feature is disabled
+03-28 03:04:47.014+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(279) > wifi initialize is fail : -1073741822 (0x8001acd7)
+03-28 03:04:47.014+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(294) > Interval is updated to 10.000000
+03-28 03:04:47.014+0900 E/INDICATOR( 2915): 
+03-28 03:05:00.724+0900 D/INDICATOR( 2915): clock.c: indicator_get_apm_by_region(666) > indicator_get_apm_by_region[666]	 "TimeZone is Asia/Seoul"
+03-28 03:05:00.724+0900 D/INDICATOR( 2915): clock.c: indicator_get_time_by_region(780) > indicator_get_time_by_region[780]	 "BestPattern is h"
+03-28 03:05:00.724+0900 D/INDICATOR( 2915): clock.c: indicator_get_time_by_region(781) > indicator_get_time_by_region[781]	 "TimeZone is Asia/Seoul"
+03-28 03:05:00.724+0900 D/INDICATOR( 2915): clock.c: indicator_get_time_by_region(801) > indicator_get_time_by_region[801]	 "DATE & TIME is en_US 3:05 4 h"
+03-28 03:05:00.724+0900 D/INDICATOR( 2915): clock.c: indicator_get_time_by_region(803) > indicator_get_time_by_region[803]	 "24H :: Before change 3:05"
+03-28 03:05:00.724+0900 D/INDICATOR( 2915): clock.c: indicator_get_time_by_region(810) > indicator_get_time_by_region[810]	 "24H :: After change 3&#x2236;05"
+03-28 03:05:00.724+0900 D/INDICATOR( 2915): clock.c: indicator_clock_changed_cb(295) > [CLOCK MODULE] Timer Status : -2146957305 Time: <font_size=33>3&#x2236;05</font_size> <font_size=32>AM</font_size></font>
+03-28 03:05:07.024+0900 E/CAPI_NETWORK_WIFI( 2915): libnetwork.c: _wifi_check_feature_supported(1370) > http://tizen.org/feature/network.wifi feature is disabled
+03-28 03:05:07.024+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(279) > wifi initialize is fail : -1073741822 (0x8001acd7)
+03-28 03:05:07.024+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(294) > Interval is updated to 10.000000
+03-28 03:05:07.024+0900 E/INDICATOR( 2915): 
+03-28 03:05:27.044+0900 E/CAPI_NETWORK_WIFI( 2915): libnetwork.c: _wifi_check_feature_supported(1370) > http://tizen.org/feature/network.wifi feature is disabled
+03-28 03:05:27.044+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(279) > wifi initialize is fail : -1073741822 (0x8001acd7)
+03-28 03:05:27.044+0900 E/INDICATOR( 2915): wifi.c: _wifi_init(294) > Interval is updated to 10.000000
+03-28 03:05:27.044+0900 E/INDICATOR( 2915): 
+03-28 03:05:34.984+0900 D/RESOURCED( 2912): logging.c: logging_send_signal_to_data(1097) > logging timer callback function start
+03-28 03:05:34.984+0900 I/RESOURCED( 2912): logging.c: logging_send_signal_to_data(1106) > send signal to logging data thread
+03-28 03:05:34.984+0900 D/RESOURCED( 2912): logging.c: logging_send_signal_to_update(1177) > logging timer callback function start
+03-28 03:05:34.984+0900 I/RESOURCED( 2912): logging.c: logging_send_signal_to_update(1186) > send signal to logging update thread
+03-28 03:05:41.374+0900 E/PKGMGR_SERVER( 7641): pkgmgr-server.c: main(2209) > package manager server start
+03-28 03:05:41.374+0900 D/PKGMGR  ( 7641): comm_pkg_mgr_server.c: pkg_mgr_server_gdbus_init(405) > initialize_gdbus Enter
+03-28 03:05:41.374+0900 D/PKGMGR  ( 7641): comm_pkg_mgr_server.c: pkg_mgr_server_gdbus_init(423) > initialize_gdbus Exit
+03-28 03:05:41.384+0900 D/PKGMGR  ( 7641): comm_pkg_mgr_server.c: on_bus_acquired(376) > on_bus_acquired
+03-28 03:05:41.384+0900 D/PKGMGR  ( 7641): comm_pkg_mgr_server.c: on_bus_acquired(400) > on_bus_acquired done
+03-28 03:05:41.394+0900 D/PKGMGR  ( 7641): comm_pkg_mgr_server.c: pkgmgr_request(145) > Called
+03-28 03:05:41.394+0900 D/PKGMGR  ( 7641): comm_pkg_mgr_server.c: pkgmgr_request(164) > sender_name: :1.434
+03-28 03:05:41.394+0900 D/PKGMGR  ( 7641): comm_pkg_mgr_server.c: pkg_mgr_get_sender_pid(79) > zone pid : 7639
+03-28 03:05:41.394+0900 D/PKGMGR  ( 7641): comm_pkg_mgr_server.c: pkgmgr_request(166) > sender_pid: 7639
+03-28 03:05:41.394+0900 D/PKGMGR  ( 7641): comm_pkg_mgr_server.c: pkgmgr_request(175) > [SECURE_LOG] Call request callback(obj, org.example.example_821814743, 14, tpk, org.example.example, , host)
+03-28 03:05:41.394+0900 D/PKGMGR_SERVER( 7641): pkgmgr-server.c: req_cb(625) > [SECURE_LOG] >> in callback >> Got request: [org.example.example_821814743] [14] [tpk] [org.example.example] [] [] [host]
+03-28 03:05:41.394+0900 D/PKGMGR_SERVER( 7641): pkgmgr-server.c: req_cb(646) > req_type=(14)  backend_flag=(0) zone(host)
+03-28 03:05:41.394+0900 D/PKGMGR_SERVER( 7641): pkgmgr-server.c: queue_job(1880) > target zone(host, host)
+03-28 03:05:41.394+0900 D/PKGMGR_SERVER( 7641): pkgmgr-server.c: queue_job(1884) > child forked [7644] for request type [14]
+03-28 03:05:41.394+0900 D/PKGMGR_SERVER( 7644): pkgmgr-server.c: queue_job(1884) > child forked [0] for request type [14]
+03-28 03:05:41.394+0900 D/PKGMGR_SERVER( 7641): pkgmgr-server.c: queue_job(2126) > parent exit
+03-28 03:05:41.394+0900 D/PKGMGR_SERVER( 7644): pkgmgr-server.c: queue_job(2057) > kill/check request
+03-28 03:05:41.394+0900 D/PKGMGR  ( 7639): pkgmgr.c: __check_sync_process(868) > info_file file is generated, result = 0
+03-28 03:05:41.394+0900 D/PKGMGR  ( 7639): . 
+03-28 03:05:41.394+0900 E/PKGMGR  ( 7639): pkgmgr.c: __check_sync_process(884) > file is can not remove[/tmp/org.example.example, -1]
+03-28 03:05:41.394+0900 D/PKGMGR_SERVER( 7644): pkgmgr-server.c: __pkgcmd_app_cb(1458) > sub_cmd(kill), zone_name(host)
+03-28 03:05:41.404+0900 D/AUL     ( 7644): app_sock.c: __app_send_raw(285) > pid(-2) : cmd(14)
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_request.c: __request_handler(838) > __request_handler: 14
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_status.c: _status_app_is_running_from_cache(836) > is_running hit cache, return immediately
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_request.c: __request_handler(1028) > [SECURE_LOG] APP_IS_RUNNING : org.example.example : 7376
+03-28 03:05:41.404+0900 W/AUL_AMD ( 2821): amd_request.c: __send_result_to_client(150) > __send_result_to_client, pid: 7376
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_request.c: __request_handler(838) > __request_handler: 12
+03-28 03:05:41.404+0900 D/AUL     ( 7644): app_sock.c: __app_send_cmd_with_result(643) > recv result  = 352
+03-28 03:05:41.404+0900 D/AUL     ( 7644): launch.c: app_request_to_launchpad(396) > [SECURE_LOG] launch request : 7376
+03-28 03:05:41.404+0900 D/AUL     ( 7644): app_sock.c: __app_send_raw(285) > pid(-2) : cmd(5)
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_request.c: __request_handler(838) > __request_handler: 5
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_appinfo.c: appinfo_set_value(905) > [SECURE_LOG] org.example.example : installed : norestart
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_request.c: __app_process_by_pid(279) > [SECURE_LOG] __app_process_by_pid, pid: 7376, 
+03-28 03:05:41.404+0900 D/AUL     ( 2821): app_sock.c: __app_send_raw_with_delay_reply(455) > pid(7376) : cmd(4)
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_launch.c: _term_app(1076) > term done
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_launch.c: __set_reply_handler(1015) > listen fd : 31, send fd : 30
+03-28 03:05:41.404+0900 D/APP_CORE( 7376): appcore.c: __aul_handler(632) > [APP 7376]     AUL event: AUL_TERMINATE
+03-28 03:05:41.404+0900 I/APP_CORE( 7376): appcore-efl.c: __do_app(496) > [APP 7376] Event: TERMINATE State: RUNNING
+03-28 03:05:41.404+0900 D/APP_CORE( 7376): appcore-efl.c: __do_app(517) > [APP 7376] TERMINATE
+03-28 03:05:41.404+0900 W/AUL_AMD ( 2821): amd_launch.c: __reply_handler(913) > listen fd(31) , send fd(30), pid(7376), cmd(4)
+03-28 03:05:41.404+0900 D/AUL     ( 7644): launch.c: app_request_to_launchpad(425) > launch request result : 0
+03-28 03:05:41.404+0900 D/AUL     ( 7644): app_sock.c: __app_send_raw(285) > pid(-2) : cmd(14)
+03-28 03:05:41.404+0900 D/RESOURCED( 2912): cgroup.c: cgroup_write_node(134) > [SECURE_LOG] cgroup_buf /sys/fs/cgroup/cpu/cgroup.procs, value 7376
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_request.c: __request_handler(838) > __request_handler: 14
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_status.c: _status_app_is_running_from_cache(836) > is_running hit cache, return immediately
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_request.c: __request_handler(1028) > [SECURE_LOG] APP_IS_RUNNING : org.example.example : 7376
+03-28 03:05:41.404+0900 W/AUL_AMD ( 2821): amd_request.c: __send_result_to_client(150) > __send_result_to_client, pid: 7376
+03-28 03:05:41.404+0900 D/AUL     ( 7376): app_sock.c: __app_send_raw_with_noreply(384) > pid(-2) : cmd(22)
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_request.c: __request_handler(838) > __request_handler: 22
+03-28 03:05:41.404+0900 W/AUL_AMD ( 2821): amd_request.c: __request_handler(1056) > app status : 5
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_status.c: _status_update_app_info_list(456) > pid(7376) status(5)
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_status.c: _status_update_app_info_list(468) > pid(7376) appid(org.example.example) pkgid(org.example.example) status(5)
+03-28 03:05:41.404+0900 D/AUL     ( 7376): app_sock.c: __app_send_raw_with_noreply(384) > pid(-2) : cmd(22)
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_request.c: __request_handler(838) > __request_handler: 22
+03-28 03:05:41.404+0900 W/AUL_AMD ( 2821): amd_request.c: __request_handler(1056) > app status : 5
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_status.c: _status_update_app_info_list(456) > pid(7376) status(5)
+03-28 03:05:41.404+0900 D/AUL_AMD ( 2821): amd_status.c: _status_update_app_info_list(468) > pid(7376) appid(org.example.example) pkgid(org.example.example) status(5)
+03-28 03:05:41.404+0900 D/APP_CORE( 7376): appcore.c: _appcore_fini_suspend_dbus_handler(944) > [__SUSPEND__] suspend signal finalized
+03-28 03:05:41.404+0900 D/APP_CORE( 7376): appcore-efl.c: __after_loop(1169) > [APP 7376] PAUSE before termination
+03-28 03:05:41.404+0900 I/CAPI_APPFW_APPLICATION( 7376): app_main.c: _ui_app_appcore_pause(688) > app_appcore_pause
+03-28 03:05:41.404+0900 I/CAPI_APPFW_APPLICATION( 7376): app_main.c: _ui_app_appcore_terminate(662) > app_appcore_terminate
+03-28 03:05:41.404+0900 E/EFL     ( 7376): eo<7376> lib/eo/eo_ptr_indirection.x:294 _eo_obj_pointer_get() obj_id 0x8000d86d is not pointing to a valid object. Maybe it has already been freed.
+03-28 03:05:41.404+0900 E/EFL     ( 7376): eo<7376> lib/eo/eo.c:485 _eo_do_internal() Obj (0x8000d86d) is an invalid ref.
+03-28 03:05:41.414+0900 E/EFL     ( 2840): eo<2840> lib/eo/eo.c:676 _eo_call_resolve() in lib/edje/edje_object.eo.c:316: func 'edje_obj_signal_emit' (410) could not be resolved for class 'Evas_Object_Smart'.
+03-28 03:05:41.414+0900 E/EFL     ( 7376): eo<7376> lib/eo/eo_ptr_indirection.x:294 _eo_obj_pointer_get() obj_id 0x8000a453 is not pointing to a valid object. Maybe it has already been freed.
+03-28 03:05:41.414+0900 E/EFL     ( 7376): eo<7376> lib/eo/eo.c:1699 eo_data_scope_get() Obj (0x8000a453) is an invalid ref.
+03-28 03:05:41.414+0900 D/AUL_AMD ( 2821): amd_launch.c: __e17_status_handler(2891) > pid(5829) status(3)
+03-28 03:05:41.414+0900 D/AUL_AMD ( 2821): amd_key.c: _key_ungrab(265) > _key_ungrab, win : a00002
+03-28 03:05:41.414+0900 W/AUL_AMD ( 2821): amd_key.c: _key_ungrab(269) > fail(-1) to ungrab key(XF86Back)
+03-28 03:05:41.414+0900 W/AUL_AMD ( 2821): amd_launch.c: __e17_status_handler(2895) > back key ungrab error
+03-28 03:05:41.414+0900 D/AUL_AMD ( 2821): amd_status.c: _status_update_app_info_list(456) > pid(5829) status(3)
+03-28 03:05:41.414+0900 D/AUL_AMD ( 2821): amd_status.c: _status_update_app_info_list(468) > pid(5829) appid(org.tizen.myfile) pkgid(org.tizen.myfile) status(3)
+03-28 03:05:41.414+0900 D/AUL     ( 2821): amd_app_group.c: __set_fg_flag(172) > send_signal FG org.tizen.myfile
+03-28 03:05:41.414+0900 W/AUL     ( 2821): app_signal.c: aul_send_app_status_change_signal(591) > send_app_status_change_signal, pid: 5829, appid: org.tizen.myfile, status: fg
+03-28 03:05:41.414+0900 D/RESOURCED( 2912): proc-main.c: resourced_proc_status_change(843) > [SECURE_LOG] set foreground : 5829
+03-28 03:05:41.414+0900 D/RESOURCED( 2912): vmpressure-lowmem-handler.c: lowmem_move_memcgroup(1670) > pid: 5829, proc_name: org.tizen.myfile, cg_name: foreground, oom_score_adj: 200
+03-28 03:05:41.414+0900 D/RESOURCED( 2912): cgroup.c: cgroup_write_node(134) > [SECURE_LOG] cgroup_buf /sys/fs/cgroup/memory/foreground//cgroup.procs, value 5829
+03-28 03:05:41.434+0900 E/E17     ( 2840): e_border.c: e_border_show(2088) > BD_SHOW(0x01200003)
+03-28 03:05:41.444+0900 D/AUL_PAD ( 2980): launchpad.c: main(665) > pfds[LAUNCH_PAD].revent  : 0x0
+03-28 03:05:41.444+0900 D/AUL_PAD ( 2980): launchpad.c: main(667) > pfds[POOL_TYPE + 0].revents : 0x0
+03-28 03:05:41.444+0900 D/AUL_PAD ( 2980): launchpad.c: main(668) > pfds[CANDIDATE_TYPE + 0].revents : 0x0
+03-28 03:05:41.444+0900 D/AUL_PAD ( 2980): launchpad.c: main(667) > pfds[POOL_TYPE + 1].revents : 0x0
+03-28 03:05:41.444+0900 D/AUL_PAD ( 2980): launchpad.c: main(668) > pfds[CANDIDATE_TYPE + 1].revents : 0x0
+03-28 03:05:41.444+0900 D/AUL_PAD ( 2980): launchpad.c: main(667) > pfds[POOL_TYPE + 2].revents : 0x0
+03-28 03:05:41.444+0900 D/AUL_PAD ( 2980): launchpad.c: main(668) > pfds[CANDIDATE_TYPE + 2].revents : 0x0
+03-28 03:05:41.444+0900 I/AUL_PAD ( 2980): sigchild.h: __launchpad_process_sigchld(161) > dead_pid = 7376 pgid = 7376
+03-28 03:05:41.444+0900 I/AUL_PAD ( 2980): sigchild.h: __sigchild_action(142) > dead_pid(7376)
+03-28 03:05:41.444+0900 E/E17     ( 2840): e_border.c: e_border_hide(2248) > BD_HIDE(0x02600002), visible:1
+03-28 03:05:41.444+0900 D/INDICATOR( 2915): main.c: _property_changed_cb(432) > UNSNIFF API 2600002
+03-28 03:05:41.444+0900 D/INDICATOR( 2915): util.c: util_signal_emit_by_win(116) > emission bg.transparent
+03-28 03:05:41.444+0900 D/INDICATOR( 2915): main.c: _rotate_window(229) > Indicator angle is 0 degree
+03-28 03:05:41.444+0900 D/INDICATOR( 2915): box.c: box_get_right_item_count(242) > system cnt : 0, minictrl cnt : 0, noti cnt : 0
+03-28 03:05:41.444+0900 D/INDICATOR( 2915): box.c: box_get_right_item_count(243) > system_cnt + minictrl_cnt + noti_cnt = 0
+03-28 03:05:41.444+0900 D/INDICATOR( 2915): main.c: _rotate_window(252) > port :: hide more icon
+03-28 03:05:41.444+0900 D/AUL_PAD ( 2980): sigchild.h: __send_app_dead_signal(90) > send dead signal done
+03-28 03:05:41.444+0900 I/AUL_PAD ( 2980): sigchild.h: __sigchild_action(148) > __send_app_dead_signal(0)
+03-28 03:05:41.444+0900 I/AUL_PAD ( 2980): sigchild.h: __launchpad_process_sigchld(169) > after __sigchild_action
+03-28 03:05:41.444+0900 E/AUL_PAD ( 2980): launchpad.c: main(688) > error reading sigchld info
+03-28 03:05:41.444+0900 W/AUL_AMD ( 2821): amd_main.c: __app_dead_handler(324) > __app_dead_handler, pid: 7376
+03-28 03:05:41.444+0900 D/AUL_AMD ( 2821): amd_key.c: _unregister_key_event(179) > ===key stack===
+03-28 03:05:41.444+0900 E/AUL_AMD ( 2821): amd_launch.c: _revoke_temporary_permission(2129) > list or callee_label was null
+03-28 03:05:41.444+0900 D/AUL_AMD ( 2821): amd_status.c: __remove_pkg_info(266) > ~STATUS_SERVICE : appid(org.example.example)
+03-28 03:05:41.444+0900 D/AUL     ( 2821): simple_util.c: __trm_app_info_send_socket(325) > __trm_app_info_send_socket
+03-28 03:05:41.444+0900 E/AUL     ( 2821): simple_util.c: __trm_app_info_send_socket(330) > access
+03-28 03:05:41.444+0900 D/STARTER ( 2905): starter.c: _check_dead_signal(181) > [_check_dead_signal:181] Process 7376 is termianted
+03-28 03:05:41.444+0900 D/STARTER ( 2905): starter.c: _check_dead_signal(202) > [_check_dead_signal:202] Unknown process, ignore it
+03-28 03:05:41.444+0900 I/ESD     ( 3001): esd_main.c: __esd_app_dead_handler(1771) > pid: 7376
+03-28 03:05:41.464+0900 D/RESOURCED( 2912): heart-cpu.c: heart_cpu_foreground_state(201) > heart_cpu_foreground_state : pid = 5829, appname = org.tizen.myfile, pkgname = org.tizen.myfile
+03-28 03:05:41.464+0900 D/RESOURCED( 2912): cpu.c: cpu_foreground_state(221) > cpu_foreground_state : pid = 5829, appname = org.tizen.myfile
+03-28 03:05:41.464+0900 D/RESOURCED( 2912): cgroup.c: cgroup_write_node(134) > [SECURE_LOG] cgroup_buf /sys/fs/cgroup/cpu/cgroup.procs, value 5829
+03-28 03:05:41.464+0900 E/RESOURCED( 2912): resourced-dbus.c: resourced_dbus_system_hash_drop_busname(324) > Does not exist in busname hash: :1.436
+03-28 03:05:41.464+0900 D/RESOURCED( 2912): proc-monitor.c: proc_dbus_aul_terminated(1080) > received terminated process : pid 7376
+03-28 03:05:41.464+0900 D/RESOURCED( 2912): appinfo-list.c: resourced_appinfo_put(132) > appid org.example.example, pkgname = org.example.example, ref = 0
+03-28 03:05:41.464+0900 I/RESOURCED( 2912): memcontrol.c: memcg_get_anon_usage(165) > get mem usage anon from /sys/fs/cgroup/memory/foreground/memory.stat
+03-28 03:05:41.464+0900 I/RESOURCED( 2912): vmpressure-lowmem-handler.c: lowmem_press_cgroup_handler(1775) > anon page 0 MB < medium threshold 0 MB
+03-28 03:05:41.474+0900 W/CRASH_MANAGER( 7646): worker.c: worker_job(1204) > 1107376657861149063794

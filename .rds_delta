@@ -1,0 +1,12 @@
+#delete
+#add
+#modify
+author-signature.xml
+signature1.xml
+bin/example
+res/src/diary.o
+res/src/feeding.o
+res/src/forpet.o
+res/src/setting.o
+res/src/statistics.o
+res/src/diary.c
