@@ -1,9 +1,9 @@
-APPNAME = example
+APPNAME = capstoneproject
 
 type = app
 profile = mobile-2.4
 
-USER_SRCS = src/example.c
+USER_SRCS = src/capstoneproject.c
 USER_DEFS =
 USER_INC_DIRS = inc
 USER_OBJS =

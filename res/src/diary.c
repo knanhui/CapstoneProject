@@ -249,7 +249,7 @@ static Evas_Object* create_option_view(Evas_Object *parent,Evas_Object*nf){
               Elm_Object_Item *it2 = elm_hoversel_item_add(hoversel, "hospital",   NULL, ELM_ICON_NONE, it2_view_cb, NULL);//병원
               Elm_Object_Item *it3 = elm_hoversel_item_add(hoversel, "walking",   NULL, ELM_ICON_NONE, it3_view_cb, NULL); //산책
               Elm_Object_Item *it4 = elm_hoversel_item_add(hoversel, "defecation",   NULL, ELM_ICON_NONE,it4_view_cb, NULL); //배변
-
+           //   dlog_print(DLOG_INFO, "user_tag", buff);
               elm_grid_pack(grid, hoversel, 80, 120,350, 50);
               evas_object_show(hoversel);
               return grid;
