@@ -4,7 +4,7 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="bin%2Fexample">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>cqNKXvuVGXq6gQLzCXLEE4BW3K0xxp97f7UEoxNR2N8=</DigestValue>
+<DigestValue>udTngvB6WTHhaRgSiLi10F67U9phUSHUmT0fkobz6sw=</DigestValue>
 </Reference>
 <Reference URI="res%2F2.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -24,35 +24,35 @@
 </Reference>
 <Reference URI="res%2Fsrc%2Fdiary.c">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>G4c05oAC83LuDtvM/u35X6xXYTc3jHpPrJ+JNZ4NtKs=</DigestValue>
+<DigestValue>zdewBM6QCIIq0uE53KK10jBfV8yI7t1viXsYnf0obj4=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Fdiary.o">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>es6OII2X1yrh/yf3Cpb/ZZ8g8cdJKi80JqZ1aDU0gUA=</DigestValue>
+<DigestValue>xNLx91dzI8sVC9W1uKdXtDTc/uf+syjngyudvNp7ycg=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Ffeeding.c">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>mu8W2b18M4cW4y+8Tmdor+O2/atdqexs2rmy6TYMnlE=</DigestValue>
+<DigestValue>oHCCeSnK+ISSWocQpXNuBT7eMCclnAuSdCFsspSwz98=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Ffeeding.o">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>S6YBGhMgbW6ZhHhk8of9dbENM6aQgSrhztPQK+lpk08=</DigestValue>
+<DigestValue>2lO41BsOC58Lanf1ER3r2GghISDjFyRHNmzeF6XuGQY=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Fforpet.c">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>QoeS22RKGLdwdYkn7vsIz67It3PqGn6/mkmXszr5e2E=</DigestValue>
+<DigestValue>s1zQy8jzf02soNLgbQcJlcRfR5o9qOUthkiWBABtkhQ=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Fforpet.o">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>wNXdnUhbD2wRwFgrWHG1xu0IkCtmTNc1wV5e/vzXyUs=</DigestValue>
+<DigestValue>nHhPXR/DjYXTW9lssjmJ3anKvEGx2gRIkqTorkF5T+w=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Fsetting.c">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>7UO5vke/JfCkdBEAZDLzqlsvUd3fZkLXMcxVc1K+rJk=</DigestValue>
+<DigestValue>jw5Ac9WBOUAvjYK3YnUJn9lr7NsEZKUcZHPR8rkuHdw=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Fsetting.o">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>J6XvP23Cd0gGZXSHTOUTn+D7XN05jIRhT1AyIMqPwOc=</DigestValue>
+<DigestValue>ykGTdSyulF1lfB/8Lmas/xFTj4Q7rPyZncyInST0LFc=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Fstatistics.c">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -60,7 +60,15 @@
 </Reference>
 <Reference URI="res%2Fsrc%2Fstatistics.o">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>TUy+Nld6ZFM8rYZyC2Hhw/NH0fkwSBWy14ikozMSNj8=</DigestValue>
+<DigestValue>4XbBPgnqDDRX49ax81vx4CFyrOlL7M76ad4wN4W2IjY=</DigestValue>
+</Reference>
+<Reference URI="res%2Fsrc%2Ftest.c">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</DigestValue>
+</Reference>
+<Reference URI="res%2Fsrc%2Ftest.o">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>95HDhPEtC6Q+EUrojNPC6/nZPuqlQ3sdJ3Qu6oV0M40=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwaste.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -91,9 +99,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-XyS1K0BZspJYEHwRLQG9L+np3F18qbdqsT9j74b1ZP8ZuTjObCl3Kp6W7L7GQudAQxMtFFSo3j4j
-Ehm0hqXxX2OEzkOm8EeKkV5wHEig9CajFLj3qqIPPEFTjEGJFQnIO9RP7EHUc0GKLZhmJ6yFhkgd
-MtdRBSmm69yF8dvPZpc=
+HB2NJNlRnNmbzhq3DGmKrfMNoX+QktY1nFQpubYY6IPJ/vnEq1YkTTUmgVEm9l+R8VXBZQHkY6I0
+xyK6+NNVvpt/qMT66dA3KUUDpOC1cIru3LQJuItJs91TNxnEVkxRd9LCzcXE555xu3DTKimCcNQ9
+5GJ0XNo7SlKnz/sg0sk=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

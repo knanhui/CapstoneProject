@@ -1,5 +1,9 @@
 #include "example.h"
 #include "custombutton.h"
+#include <sqlite3.h>
+#include <stdlib.h>
+
+
 typedef struct appdata {
 	Evas_Object *win;
 	Evas_Object *conform;
@@ -10,6 +14,10 @@ typedef struct appdata {
 	Evas_Object *nf;
 	Elm_Object_Item *nf_it;
 
+	Evas_Object *list;
+	Evas_Object * scroller;
+	// Database handle
+	char *current_key;
 } appdata_s;
 
 
@@ -90,12 +98,15 @@ create_base_gui(appdata_s *ad)
 
 
 	/* Naviframe */
+
+
 	ad->nf = elm_naviframe_add(ad->conform);
 	elm_object_content_set(ad->conform,ad->nf);
 
 	evas_object_show(ad->nf);
 
 	ad->grid_main = elm_grid_add(ad->nf);
+
 	elm_grid_size_set(ad->grid_main, 480, 800);
 	evas_object_size_hint_weight_set(ad->grid_main, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_show(ad->grid_main);
@@ -145,7 +156,7 @@ create_base_gui(appdata_s *ad)
     /* Canvas */
 	Evas* canvas = evas_object_evas_get(ad->conform);
 
-
+	ad->scroller=elm_scroller_add(ad->nf);
 
 	//Evas_Object * m_bd1 = create_rect_set(canvas, ad->grid_main, 25,380, 80, 80);
 //	m_bd1=create_text_set(canvas,ad->grid_main,25,380,80,80,"일지",NULL);
@@ -158,11 +169,11 @@ create_base_gui(appdata_s *ad)
 	buttondata_s* m_bd4=create_button(canvas, ad->grid_main, 304,295, 80, 80, "배식<br>관리", NULL);
 	evas_object_event_callback_add (m_bd4->text, EVAS_CALLBACK_MOUSE_DOWN, feeding_view_cb, ad->nf);
 	buttondata_s* m_bd5=create_button(canvas, ad->grid_main, 367,395, 80, 80, "설정", NULL);
-	evas_object_event_callback_add (m_bd5->text, EVAS_CALLBACK_MOUSE_DOWN, setting_view_cb, ad->nf);
+	evas_object_event_callback_add (m_bd5->text, EVAS_CALLBACK_MOUSE_DOWN, setting_view_cb,ad->nf);
+	//evas_object_smart_callback_add(m_bd5->text, "clicked",setting_view_cb,ad);
+
+	//appdata_s *temp = getAppdata();
 	evas_object_show(ad->grid_main);
-
-
-
 
 
 	evas_object_show(ad->win);

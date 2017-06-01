@@ -12,14 +12,14 @@ typedef struct MemoryStruct{
    size_t size;
 }memoryStruct;
 
-typedef struct appdata{
+typedef struct memdata{
    Evas_Object *win;
    Evas_Object *conform;
    Evas_Object *label;
    Evas_Object *entry;
    Evas_Object *icon;
    memoryStruct ms;
-}appdata_s;
+}memdata_s;
 
 
 Evas_Object *cal;
@@ -72,7 +72,7 @@ void get_http_data(const char* url, memoryStruct *data){
 }
 
 static void btn_download_text(void *data, Evas_Object *obj, void *event_info){
-   appdata_s *ad = data;
+   memdata_s *ad = data;
    char url[100] = {0};
 
    //sprintf(url,"https://35.185.149.161/index.php?data=10");
@@ -131,7 +131,7 @@ static Evas_Object* diary_create_view(Evas_Object *parent,Evas_Object*nf){
    Evas_Object *label_walking;
    Evas_Object *label_defecation;
    Evas_Object *label;
-   appdata_s *ad;
+   memdata_s *ad;
 
    grid= elm_grid_add(parent);
    elm_grid_size_set(grid,480,800);
@@ -183,7 +183,7 @@ static Evas_Object* diary_create_view(Evas_Object *parent,Evas_Object*nf){
 static Evas_Object* create_option_view(Evas_Object *parent,Evas_Object*nf){
     Evas_Object *btn, *img, *grid,*label,*label2,*hoversel;
     Evas_Object *btn_plus;
-    appdata_s *ad;
+    memdata_s *ad;
     char img_path[PATH_MAX] = "";
     //time_t current_time;
     struct tm stime;

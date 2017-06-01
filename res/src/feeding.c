@@ -2,13 +2,13 @@
 #include "datetime.h"
 #include <string.h>
 #define TIME_12_FORMAT "%I:%M %p" //%I :hour 0-12 %M : minute %p:am/pm
-typedef struct item_data {
+typedef struct time_data {
 	int index;
 	char * time; //시간
 	int id; //오전=0,오후=1;
 	Elm_Object_Item *item;
 	Evas_Object * nf;
-} item_data_s;
+} time_data_s;
 
 typedef struct check_data {
 	Evas_Object *check1;
@@ -154,7 +154,7 @@ Evas_Object *nf = data;
 	 			itc->func.content_get = gl_content_get_cb;
 	 			itc->func.del = gl_del_cb;
 
-	 item_data_s *id = calloc(sizeof(item_data_s), 1);
+	 time_data_s *id = calloc(sizeof(time_data_s), 1);
 	// id->index = i;
 	 id->nf=nf;
 	 it = elm_genlist_item_append(genlist, itc,id,NULL, ELM_GENLIST_ITEM_NONE, list_item_clicked,id);
@@ -335,7 +335,7 @@ static void list_item_clicked(Evas_Object *data, Evas_Object *obj, void *event_i
 
 	Evas_Object * yes_btn,*no_btn;
 	Evas_Object * label;
-	item_data_s *id = data;
+	time_data_s *id = data;
 	Evas_Object *nf =id->nf;
 	del_popup= elm_popup_add(nf); //삭제여부 확인창
 	elm_popup_align_set(del_popup,  ELM_NOTIFY_ALIGN_FILL, 0.5);
@@ -368,7 +368,7 @@ static void list_item_clicked(Evas_Object *data, Evas_Object *obj, void *event_i
 
 static Evas_Object* gl_content_get_cb(void *data, Evas_Object *obj, const char *part) {
 
-	item_data_s *id = data;
+	time_data_s *id = data;
 
 
 if (!strcmp("elm.swallow.icon", part)){

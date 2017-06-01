@@ -31,3 +31,8 @@ build res/src/statistics.o.ast: build_c_fast_ast ../res/src/statistics.c
 build $sareportdir/res/src/statistics.o.xml: build_c_fast_sa res/src/statistics.o.ast || externalFnMap.txt
 build res/src/statistics.o.txt: build_c_api ../res/src/statistics.c 
 build $coveragedir/res/src/statistics.o.cov: build_cov ../res/src/statistics.c 
+build res/src/test.o: build_c ../res/src/test.c 
+build res/src/test.o.ast: build_c_fast_ast ../res/src/test.c 
+build $sareportdir/res/src/test.o.xml: build_c_fast_sa res/src/test.o.ast || externalFnMap.txt
+build res/src/test.o.txt: build_c_api ../res/src/test.c 
+build $coveragedir/res/src/test.o.cov: build_cov ../res/src/test.c 
