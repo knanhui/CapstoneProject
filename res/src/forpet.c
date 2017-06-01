@@ -154,7 +154,7 @@ create_base_gui(appdata_s *ad)
 	buttondata_s* m_bd2=create_button(canvas, ad->grid_main, 98,292, 80, 80, "통계", NULL);
 	evas_object_event_callback_add (m_bd2->text, EVAS_CALLBACK_MOUSE_DOWN, statistics_view_cb, ad->nf);
 	buttondata_s* m_bd3=create_button(canvas, ad->grid_main, 202,245, 80, 80, "바로<br>주기", NULL);
-	//evas_object_event_callback_add (m_bd3->text, EVAS_CALLBACK_MOUSE_DOWN, feeding_view_cb, ad->nf);
+	evas_object_event_callback_add (m_bd3->text, EVAS_CALLBACK_MOUSE_DOWN, manual_view_cb, ad->nf);
 	buttondata_s* m_bd4=create_button(canvas, ad->grid_main, 304,295, 80, 80, "배식<br>관리", NULL);
 	evas_object_event_callback_add (m_bd4->text, EVAS_CALLBACK_MOUSE_DOWN, feeding_view_cb, ad->nf);
 	buttondata_s* m_bd5=create_button(canvas, ad->grid_main, 367,395, 80, 80, "설정", NULL);

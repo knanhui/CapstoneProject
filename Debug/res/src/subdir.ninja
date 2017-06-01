@@ -21,6 +21,11 @@ build res/src/forpet.o.ast: build_c_fast_ast ../res/src/forpet.c
 build $sareportdir/res/src/forpet.o.xml: build_c_fast_sa res/src/forpet.o.ast || externalFnMap.txt
 build res/src/forpet.o.txt: build_c_api ../res/src/forpet.c 
 build $coveragedir/res/src/forpet.o.cov: build_cov ../res/src/forpet.c 
+build res/src/manual.o: build_c ../res/src/manual.c 
+build res/src/manual.o.ast: build_c_fast_ast ../res/src/manual.c 
+build $sareportdir/res/src/manual.o.xml: build_c_fast_sa res/src/manual.o.ast || externalFnMap.txt
+build res/src/manual.o.txt: build_c_api ../res/src/manual.c 
+build $coveragedir/res/src/manual.o.cov: build_cov ../res/src/manual.c 
 build res/src/setting.o: build_c ../res/src/setting.c 
 build res/src/setting.o.ast: build_c_fast_ast ../res/src/setting.c 
 build $sareportdir/res/src/setting.o.xml: build_c_fast_sa res/src/setting.o.ast || externalFnMap.txt
