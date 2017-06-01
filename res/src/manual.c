@@ -1,41 +1,51 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <sys/stat.h>
 #include <unistd.h>
+#include <arpa/inet.h>
+#include <sys/types.h>
+#include <sys/socket.h>
 #include "example.h"
-int socket_desc;
+
 #define  BUFF_SIZE   1024
 
-void manual_view_cb(void *data, Evas_Object *obj, void *event_info){
-	   struct sockaddr_in server;
-		    char *message;
-		    char buff[BUFF_SIZE];
-		    //Create socket
-		    socket_desc = socket(AF_INET , SOCK_STREAM , 0);
-		    if (socket_desc == -1)
-		    {
-		        printf("Could not create socket");
-		    }
+void manual_view_cb(void *data, Evas_Object *obj, void *event_info)
+{
+   int   sock;
+   int   server_addr_size;
+   struct sockaddr_in   server_addr;
+   char   buff_rcv[BUFF_SIZE+5];
+   char *message;
 
-		    server.sin_addr.s_addr = inet_addr("35.185.149.161");
-		    server.sin_family = AF_INET;
-		    server.sin_port = htons( 80 );
+   sock  = socket( PF_INET, SOCK_DGRAM, 0);
 
-		    //Connect to remote server
-		    if (connect(socket_desc , (struct sockaddr *)&server , sizeof(server)) < 0)
-		    {
-		    	dlog_print(DLOG_INFO, LOG_TAG, "connect fail");
-		    }
+   if( -1 == sock)
+   {
+      printf( "socket 생성 실패n");
+      exit( 1);
+   }
+   message = "m";
 
-		    //Send some data
-		    message = "send";
-		    if( send(socket_desc , message , strlen(message) , 0) < 0)
-		    {
-		    	dlog_print(DLOG_INFO, LOG_TAG, "fail send");
-		    }
-		    dlog_print(DLOG_INFO, LOG_TAG, message);
+   memset( &server_addr, 0, sizeof( server_addr));
+   server_addr.sin_family     = AF_INET;
+   server_addr.sin_port       = htons(8888);
+   server_addr.sin_addr.s_addr= inet_addr("192.168.43.11");
 
-		    close(socket_desc);
+   sendto( sock, message, strlen(message)+1, 0, ( struct sockaddr*)&server_addr, sizeof( server_addr));
+
+
+   dlog_print(DLOG_INFO, LOG_TAG, message);
+
+/*?
+   server_addr_size  = sizeof( server_addr);
+   if(recvfrom( sock, buff_rcv, BUFF_SIZE, 0 ,
+           ( struct sockaddr*)&server_addr, &server_addr_size) < 0){
+	   dlog_print(DLOG_INFO, LOG_TAG, "receive error");
+  }
+
+   dlog_print(DLOG_INFO, LOG_TAG, buff_rcv);
+*/
+   close( sock);
+
+
 }
