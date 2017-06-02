@@ -4,11 +4,11 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>h8uQmNemRail7Oa4f+Wyn4c3jt3vHioSkVGHTJkjU+I=</DigestValue>
+<DigestValue>NuAcIJM/BzgLf/8u3IBRqaf5KByKZHX28Llx6PREyFI=</DigestValue>
 </Reference>
 <Reference URI="bin%2Fexample">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>1Cv9r/av7NDROPv24iRkHezwxXenWLWMwTgLkoRRDuM=</DigestValue>
+<DigestValue>cTi8ilqMPLq4gfF+voFBkKi98wzIHydjN/WK+B5hmJw=</DigestValue>
 </Reference>
 <Reference URI="res%2F2.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -36,11 +36,11 @@
 </Reference>
 <Reference URI="res%2Fsrc%2Ffeeding.c">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>eUi0Dp2XJcJuFLWS2N0OYSfdz8PnxXvQGac/lHt8v8E=</DigestValue>
+<DigestValue>2X3sqnkiGOkvD6wKdGLqLH6hU+4BzjTfTGpGE7zmVwI=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Ffeeding.o">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>oY8L+LF4Z1EzQgLz2SsS7n+kv6kH29kS0QEjrcXN9Y4=</DigestValue>
+<DigestValue>4t09jR5vHVBsdekkv2Fc9rkvtpnpdZ5tdzCbvkMhXuc=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Fforpet.c">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -60,11 +60,11 @@
 </Reference>
 <Reference URI="res%2Fsrc%2Fsetting.c">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>jw5Ac9WBOUAvjYK3YnUJn9lr7NsEZKUcZHPR8rkuHdw=</DigestValue>
+<DigestValue>UiqPAw4Jm8ydxwyRaT9kavC10gEb/FATk6KeZAlJ4Bc=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Fsetting.o">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>9CFnvLvD1JR21Ya3ZoHgnMhaS7MwE5Ki8GnpKwkOq7s=</DigestValue>
+<DigestValue>s+QByS4v8Jr7qBzijUEAnwBSvCF1Gq9s6G/MZKtnJ3A=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Fstatistics.c">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -111,11 +111,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-YWtxoVDVqTJLOgeAS2yI/xw4y/KlWohbyAeReXXWVUcqsPFQqXESsVJrka9f9obLXidJkQDneQqW
-uXnCsI8fTg9KPVhBwCGQJYwrRXz0g3pHwdV71Ngl9VTfiC1P949VBMamvP7E//GB61zWQ3ekbLQD
-m93X1MQXkshGMp0P1mQEc6k4X+pGEY2wnolkaEe5ZcSWvctYl79OLmDD140sLRgCItou9gxKIrA0
-0B4QD9CcYCDNMuwPQjOWaDjuFRF2Qi8sV5k8j+yRmtj7WwZoQsC6nncc8DjaNYvFwdlVoNiN0l7U
-rmSX6dcfl7crSNXYz2Wyh9tZ3CF1+YcBxj42dA==
+ivN1j5ne2ByMfQTFVOUdqc8w12F5TF+cQ5+ym3BCQVzo2xYU4cavynbmAiGd2IXt92y4e8XTwNE3
+m6/ozWKB7WknNSePkl6TPAedTHoNDXywQUOxUe3s04MczWYPqJbx4KWJtOb79I7Jy2GbPjNtTsTH
+a30TRYsvsjogu/YLCbEwJ9zz03awTc0WbB0/ffk+0pNvSiinAYyvYs6SJR6XtFZwHBQanv3yXxQn
+AyeZ3BgyhzZKFks5vT/cmOUjqAEgf2oRWi2ncZ1ih+kPGYbpGhpcnVe/gQNP1thXb+ksGjfuGa+2
+ZasaQIqk1p+YGE+URDrI4ipdjjNEIxhS6A2aNg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

@@ -2,6 +2,7 @@
 #include "datetime.h"
 #include <string.h>
 #include <sqlite3.h>
+
 #define TIME_12_FORMAT "%I:%M %p" //%I :hour 0-12 %M : minute %p:am/pm
 typedef struct time_data {
 	int index;
@@ -25,6 +26,23 @@ typedef struct check_data {
 
 } check_s;
 
+typedef struct appdata {
+	Evas_Object *win;
+	Evas_Object *conform;
+	Evas_Object *label;
+	Evas_Object *grid_main;
+	Evas_Object *img ;
+	Evas_Object *btn;
+	Evas_Object *nf;
+	Evas_Object *list;
+	Evas_Object * scroller;
+
+	// Database handle
+	char *current_key;
+} appdata_s;
+
+int counter =0;
+
 typedef struct recdata {
 	int dayweek;
 	int tm_hour;
@@ -47,12 +65,23 @@ check_s ad;
 Elm_Genlist_Item_Class *itc=NULL;
 Evas_Object *genlist;
 Eina_Bool rep_check;
+appdata_s * m_ad;
+
+//static struct tm * current;
 
 static Evas_Object* gl_content_get_cb(void *data, Evas_Object *obj, const char *part);
 static char* gl_text_get_cb(void *data, Evas_Object *obj, const char *part);
 static void popup_set_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info);
 static void list_item_clicked(Evas_Object *data, Evas_Object *obj, void *event_info);
 
+static int DeletRecord(time_data_s*id, int dayweek, int tm_hour, int tm_min){
+		char sql[256];
+		char *ErrMsg;
+		dlog_print(DLOG_INFO,"tag","delete~~~");
+		snprintf(sql, 256, "DELETE FROM feeding WHERE DAYWEEK=\'%d\' AND TM_HOUR=\'%d\' AND TM_MIN=\'%d\';",dayweek,tm_hour,tm_min); //=\'%s\';",
+		int ret = sqlite3_exec(id->db, sql, NULL, 0, &ErrMsg);
+		return ret;
+}
 static int InsertRecord(time_data_s*id, int dayweek, int tm_hour, int tm_min)
 {
 	char sql[256];
@@ -75,7 +104,8 @@ static int db_read_cb( time_data_s*id, int argc, char **argv, char **azColName) 
 
 	char buf[255];
 	char buff[100];
-	//current = malloc(sizeof(recdata_s)*(int)counter);
+	current = realloc(current,sizeof(recdata_s)*counter);
+
 	dlog_print(DLOG_INFO,"tag","들어와!");
 	rd = malloc(sizeof(recdata_s));
 
@@ -87,16 +117,22 @@ static int db_read_cb( time_data_s*id, int argc, char **argv, char **azColName) 
 	sprintf(buf, "%d / %d / %d ", atoi(argv[0]), atoi(argv[1]), atoi(argv[2]));
 
 	snprintf(buff,100,"rd->dayweek %d rd->tm_hour %d rd->tm_min %d ",rd->dayweek,rd->tm_hour,rd->tm_min);
+	current[counter-1].dayweek = atoi(argv[0]);
+	current[counter-1].tm_hour = atoi(argv[1]);
+	current[counter-1].tm_min = atoi(argv[2]);
+
 	/*current[(rd->index)-1]->index = atoi(argv[0]);
 	current[(rd->index)-1]->onoff = atoi(argv[1]);
 	*/dlog_print(DLOG_INFO,"db",buff);
 	 elm_list_item_append(list2, buf, NULL, NULL, NULL, (void*)rd);
 	 elm_list_go(list2);
+	 dlog_print(DLOG_INFO,"%s",buff);
     return 0;
 }
 	static int read_db(time_data_s *id) {
 		char *sql = "select * from feeding";
-		int counter=0;
+		counter++;
+
 		char *ErrMsg;
 		 elm_list_clear(list2);
 		 dlog_print(DLOG_INFO,"tag","eonji~");
@@ -125,7 +161,7 @@ static void init_db(time_data_s*id) {
     CreateTable(id);
 
     //read_db(id);
-
+    counter =0;
     read_db(id);
     }
 
@@ -153,15 +189,17 @@ Evas_Object *nf = data;
  static void check_changed_cb(void *data, Evas_Object *obj, void *event_info){
  	 dlog_print(DLOG_INFO, "user_tag","체크");
   }
- static void gl_del_cb(void *data, Evas_Object *obj, void *event_info){
-
-
+ static void gl_del_cb(time_data_s *id, Evas_Object *obj, void *event_info){
 
 	  Elm_Object_Item *item = elm_genlist_selected_item_get(genlist);
 	  	elm_object_item_del(item);
 	  if(!obj) return;
 	  		 evas_object_del(del_popup);
 	  		 elm_popup_dismiss(del_popup);
+	  		DeletRecord(td, current[id->index-1].dayweek, current[id->index-1].tm_hour, current[id->index-1].tm_min);
+	  		counter=0;
+	  		read_db(id);
+
  }
  //요일 반복 설정 ad.select에 check한 요일 저장.
  static void rep_set_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info){
@@ -238,9 +276,11 @@ Evas_Object *nf = data;
 
 	 elm_datetime_value_get(datetime,&saved_time);
 	 strftime(buff, 200, TIME_12_FORMAT,&saved_time);
-
+	 InsertRecord(td,saved_time.tm_wday,saved_time.tm_hour,saved_time.tm_min);
+	 //dlog_print(DLOG_INFO,"save_time",saved_time.tm_hour);
 	 	 	dlog_print(DLOG_INFO, "user_tag", buff);
-
+	 	 	counter = 0;
+	 	 	read_db(td);
 	 evas_object_del(popup);
 	 itc->item_style  = "type1";
 	 			itc->func.text_get = gl_text_get_cb;
@@ -252,7 +292,6 @@ Evas_Object *nf = data;
 	 id->nf=nf;
 	 it = elm_genlist_item_append(genlist, itc,id,NULL, ELM_GENLIST_ITEM_NONE, list_item_clicked,id);
 	 id->item = it;
-	 InsertRecord(id,saved_time.tm_wday,saved_time.tm_hour,saved_time.tm_min);
 
 
 
@@ -462,7 +501,7 @@ static void list_item_clicked(Evas_Object *data, Evas_Object *obj, void *event_i
 
 static Evas_Object* gl_content_get_cb(void *data, Evas_Object *obj, const char *part) {
 
-	time_data_s *id = data;
+	td = data;
 
 
 if (!strcmp("elm.swallow.icon", part)){
@@ -531,6 +570,7 @@ gl_text_get_cb(void *data, Evas_Object *obj, const char *part)
 
 static Evas_Object* create_button_view(Evas_Object *parent,Evas_Object *nf)
 {
+
 	Evas_Object *btn, *img, *grid,*label,*list,*add,*label_forpet;
 	//Elm_Genlist_Item_Class *itc = NULL;
 	int i, num_of_item;
@@ -586,6 +626,7 @@ static Evas_Object* create_button_view(Evas_Object *parent,Evas_Object *nf)
 				evas_object_show(genlist);
 				evas_object_show(btn);
 
+
 			return grid;
    }
 
@@ -593,16 +634,18 @@ static Evas_Object* create_button_view(Evas_Object *parent,Evas_Object *nf)
 
 void feeding_view_cb(void *data, Evas_Object *obj, void *event_info)
 {
+	//appdata_s *ad;
 	Evas_Object *scroller,*layout;
 	Evas_Object *nf = data;
 	scroller = elm_scroller_add(nf);
+	//ad->nf = nf;
 	layout = create_button_view(scroller,nf);
 	elm_object_content_set(scroller, layout);
 	//elm_naviframe_item_push(nf, NULL, NULL, NULL, scroller, NULL);
 	Elm_Object_Item *nf_it = elm_naviframe_item_push(nf,NULL, NULL, NULL,scroller, NULL);
 	elm_naviframe_item_title_enabled_set(nf_it,EINA_FALSE,EINA_FALSE);
 	//elm_object_content_set(nf_it,nf);
-	 elm_object_item_data_set(nf_it, nf);
+	 elm_object_item_data_set(nf_it,nf);
 
 	evas_object_show(nf);
 	//init_db(ad->nf);

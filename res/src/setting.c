@@ -284,10 +284,11 @@ static Evas_Object* gl_content2_get_cb(void *data, Evas_Object *obj, const char 
 
 
 }*/
-static Evas_Object* create_button_view(Evas_Object *parent,appdata_s *ad)
+static Evas_Object* create_button_view(Evas_Object *parent,void *data)
 {
 
-	m_ad =ad;
+	//m_ad =ad;
+	Evas_Object *nf = data;
 	 dlog_print(DLOG_INFO,"user","on");
 	Evas_Object *btn, *img, *grid,*label,*label_forpet;
 	grid = elm_grid_add(parent);
@@ -312,7 +313,7 @@ static Evas_Object* create_button_view(Evas_Object *parent,appdata_s *ad)
 	elm_grid_pack(grid, label, 100, 10, 300, 150);
 	elm_object_text_set(label_forpet, "<font_size=38><align=center><color=#000000>For Pet</align></font size></color>");
 		elm_grid_pack(grid, label_forpet, 160, 730,150, 150);
-    evas_object_event_callback_add (label, EVAS_CALLBACK_MOUSE_DOWN, btn_back_cb,ad->nf);
+    evas_object_event_callback_add (label, EVAS_CALLBACK_MOUSE_DOWN, btn_back_cb,nf);
 
 
 	evas_object_show(label);
@@ -375,22 +376,18 @@ static Evas_Object* create_button_view(Evas_Object *parent,appdata_s *ad)
 
 void setting_view_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	appdata_s * ad;
-	//init_db(id);
-
-
-
+	//appdata_s * ad;
 	Evas_Object *scroller, *layout;
 	Evas_Object *nf = data;
+	//m_ad->nf=nf;
 
 	scroller = elm_scroller_add(nf);
-	ad->nf=nf;
-	layout = create_button_view(scroller,ad);
+	layout = create_button_view(scroller,nf);
 	elm_object_content_set(scroller, layout);
-	Elm_Object_Item *nf_it = elm_naviframe_item_push(ad->nf,NULL, NULL, NULL,scroller, NULL);
+	Elm_Object_Item *nf_it = elm_naviframe_item_push(nf,NULL, NULL, NULL,scroller, NULL);
 	elm_naviframe_item_title_enabled_set(nf_it,EINA_FALSE,EINA_FALSE);
-	 elm_object_item_data_set(nf_it, ad->nf);
+	 elm_object_item_data_set(nf_it, nf);
 
-	evas_object_show(ad->nf);
+	evas_object_show(nf);
 
 }
