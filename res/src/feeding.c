@@ -74,29 +74,28 @@ static Evas_Object* gl_content_get_cb(void *data, Evas_Object *obj,
 static char* gl_text_get_cb(void *data, Evas_Object *obj, const char *part);
 static void popup_set_btn_clicked_cb(void *data, Evas_Object *obj,
 		void *event_info);
-static void list_item_clicked(Evas_Object *data, Evas_Object *obj,
-		void *event_info);
+static void list_item_clicked(void *data, Evas_Object *obj, void *event_info);
 
-static int DeletRecord(time_data_s*id, int tm_hour, int tm_min) {
+static int DeletRecord(time_data_s* id, int tm_hour, int tm_min) {
 	char sql[256];
 	char *ErrMsg;
 	dlog_print(DLOG_INFO, "tag", "delete~~~");
-	dlog_print(DLOG_INFO, "tag",
-			"DELETE FROM feeding WHERE TM_HOUR='%d' AND TM_MIN='%d';", tm_hour,
-			tm_min);
+
 	snprintf(sql, 256,
-			"DELETE FROM feeding WHERE TM_HOUR=/'%d/' AND TM_MIN=/'%d/';",
+			"DELETE FROM feeding WHERE TM_HOUR = \'%d\' AND TM_MIN = \'%d\';",
 			tm_hour, tm_min);
+	dlog_print(DLOG_INFO, "tag", "%s", sql);
 	int ret = sqlite3_exec(id->db, sql, NULL, 0, &ErrMsg);
-	dlog_print(DLOG_INFO, "tag", "delete end~~~");
+	dlog_print(DLOG_INFO, "tag", "%d",ret);
 	return ret;
+
 }
 static int InsertRecord(time_data_s*id, int dayweek, int tm_hour, int tm_min) {
 	char sql[256];
 	char *ErrMsg;
 	dlog_print(DLOG_INFO, "tag", "insert");
 
-	snprintf(sql, 256, "INSERT INTO feeding VALUES%d,%d);", tm_hour, tm_min);
+	snprintf(sql, 256, "INSERT INTO feeding VALUES(%d,%d);", tm_hour, tm_min);
 
 	int ret = sqlite3_exec(id->db, sql, NULL, 0, &ErrMsg);
 	return ret;
@@ -247,23 +246,28 @@ static void deleteDB(Elm_Object_Item *item) {
 }
 static void gl_del_cb(time_data_s *id, Evas_Object *obj, void *event_info) {
 
-
 	Elm_Object_Item *item = elm_genlist_selected_item_get(genlist);
+	static int i = 0;
+	dlog_print(DLOG_INFO, "tag", "%d", i);
 
-	dlog_print(DLOG_INFO, "tag", "abc");
-	//dlog_print(DLOG_INFO,"tag",id->time);
-
-	elm_object_item_del(item);
-	dlog_print(DLOG_INFO, "tag", "지우고~");
-	if (!obj)
+	if (i == 0) {
+		i++;
+		deleteDB(item);
+		elm_object_item_del(item);
+		dlog_print(DLOG_INFO, "tag", "지우고~");
+		if (!obj)
+			return;
+		evas_object_del(del_popup);
+		dlog_print(DLOG_INFO, "tag", "팝업 지워~");
+		elm_popup_dismiss(del_popup);
+		dlog_print(DLOG_INFO, "tag", "끝");
+		//counter=0;
+		//read_db(id);
+		i = 0;
+	} else {
+		i = 0;
 		return;
-	evas_object_del(del_popup);
-	dlog_print(DLOG_INFO, "tag", "팝업 지워~");
-	elm_popup_dismiss(del_popup);
-	dlog_print(DLOG_INFO, "tag", "끝");
-	//counter=0;
-	//read_db(id);
-
+	}
 }
 //요일 반복 설정 ad.select에 check한 요일 저장.
 static void rep_set_btn_clicked_cb(void *data, Evas_Object *obj,
@@ -347,10 +351,10 @@ static void popup_set_btn_clicked_cb(void *data, Evas_Object *obj,
 
 	time_data_s *id = calloc(sizeof(time_data_s), 1);
 	// id->index = i;
-	id->nf = nf;
-	it = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE,
-			list_item_clicked, id);
-	id->item = it;
+	td->nf = nf;
+	it = elm_genlist_item_append(genlist, itc, td, NULL, ELM_GENLIST_ITEM_NONE,
+			list_item_clicked, td);
+	td->item = it;
 
 }
 static void my_box_pack(Evas_Object *box, Evas_Object *child, double h_weight,
@@ -512,8 +516,7 @@ static Evas_Object* create_image(Evas_Object *parent, char*s) {
 	return img;
 }
 
-static void list_item_clicked(Evas_Object *data, Evas_Object *obj,
-		void *event_info) {
+static void list_item_clicked(void *data, Evas_Object *obj, void *event_info) {
 
 	Evas_Object * yes_btn, *no_btn;
 	Evas_Object * label;
