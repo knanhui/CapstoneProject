@@ -4,11 +4,11 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>/cuCJHpo99u9JlXIeQKN7TgyYnYat/3qVCByYCibaFw=</DigestValue>
+<DigestValue>gSlaNPQOvDzYHJvdwtzhqIh4oBFtku6GFnYwpfPPZN8=</DigestValue>
 </Reference>
 <Reference URI="bin%2Fexample">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>DtrTvZL/lk4jjhXfXvP6AHP+2ze6rkR6I8/FowCOriE=</DigestValue>
+<DigestValue>gUmoe/wFpIMD86DiEmUT6m031hgBgMCveIyHXSsWr1U=</DigestValue>
 </Reference>
 <Reference URI="res%2F2.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -36,11 +36,11 @@
 </Reference>
 <Reference URI="res%2Fsrc%2Ffeeding.c">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>cNylfBCQ5b4DibtozQ6to7jrTmLqsbo9PtbeASpal0g=</DigestValue>
+<DigestValue>YS5n1Eh+KcnYnfmOmTAjXKdnO9m5y/vIbHsjvtNGvCY=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Ffeeding.o">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>gV0XUwmWuOPXfR2AQvL23Wv/VZCH6IbI3xGV7ruoS4w=</DigestValue>
+<DigestValue>Yik3a1wQZmtIiaSiRk0HlwVJo+ChA8uY5n0pBlM4dig=</DigestValue>
 </Reference>
 <Reference URI="res%2Fsrc%2Fforpet.c">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -111,9 +111,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-etjnibQ4lsxtfRRbH6u46/OvwNxtdKtQBEBJ8j6mXD6+dqg0HTNmTn9STanS7XrruW9ESfanVwoD
-qXJ1n6eldHy7wSJX5QFmrGg7PUilwQP6r625jLlX0v3EhrO7W8vDZRO47MeQhxQgBv6BHR/qMX2/
-fPil1xNdhW592w+jyvk=
+d5LdWO1nOyQyBiTWB0fbtsoOqFe6onSDPY4bbTyvAAzpsos3AwBABTK4FeTxYLWCbpqydu0zSbbo
+RmYKY5L1jokGR6H7ORC8jKAe5AefeXL45eMpfTTilacmzYuzl6FDAVJQ4BStkto3adL4zuuU5FG/
+DrorJXJqZ80KORxC2s4=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

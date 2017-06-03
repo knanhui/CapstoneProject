@@ -201,12 +201,12 @@ static void popup_button_clicked(void *data, Evas_Object *obj, void *event_info)
 static void check_changed_cb(void *data, Evas_Object *obj, void *event_info) {
 	dlog_print(DLOG_INFO, "user_tag", "체크");
 }
-static void gl_del_cb(time_data_s *id, Evas_Object *obj, void *event_info) {
+static void deleteDB(Elm_Object_Item *item) {
 
 	char* sub_time[2] = { NULL, NULL };
+
 	int hour;
 	int min;
-	Elm_Object_Item *item = elm_genlist_selected_item_get(genlist);
 
 	//elm_object_item_part_text_get(item, "elm.txt");
 	char* time = elm_object_item_part_text_get(item, "elm.text");
@@ -243,9 +243,16 @@ static void gl_del_cb(time_data_s *id, Evas_Object *obj, void *event_info) {
 
 	//dlog_print(DLOG_INFO,"tag","%d %d", hour,min );
 
+	DeletRecord(td, hour, min);
+}
+static void gl_del_cb(time_data_s *id, Evas_Object *obj, void *event_info) {
+
+
+	Elm_Object_Item *item = elm_genlist_selected_item_get(genlist);
+
 	dlog_print(DLOG_INFO, "tag", "abc");
 	//dlog_print(DLOG_INFO,"tag",id->time);
-	DeletRecord(td, hour, min);
+
 	elm_object_item_del(item);
 	dlog_print(DLOG_INFO, "tag", "지우고~");
 	if (!obj)
