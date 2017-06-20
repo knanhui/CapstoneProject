@@ -32,6 +32,8 @@ typedef struct recdata {
 	int onoff;
 } recdata_s;
 
+
+
 appdata_s *m_ad;
 recdata_s* rd;
 Evas_Object* list2;

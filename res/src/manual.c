@@ -17,6 +17,7 @@ void manual_view_cb(void *data, Evas_Object *obj, void *event_info)
    char   buff_rcv[BUFF_SIZE+5];
    char *message;
 
+   dlog_print(DLOG_INFO,"service","socket");
    sock  = socket( PF_INET, SOCK_DGRAM, 0);
 
    if( -1 == sock)
@@ -29,7 +30,7 @@ void manual_view_cb(void *data, Evas_Object *obj, void *event_info)
    memset( &server_addr, 0, sizeof( server_addr));
    server_addr.sin_family     = AF_INET;
    server_addr.sin_port       = htons(8888);
-   server_addr.sin_addr.s_addr= inet_addr("192.168.43.11");
+   server_addr.sin_addr.s_addr= inet_addr("192.168.0.85");
 
    sendto( sock, message, strlen(message)+1, 0, ( struct sockaddr*)&server_addr, sizeof( server_addr));
 

@@ -2,8 +2,13 @@
 #include "datetime.h"
 #include <string.h>
 #include <sqlite3.h>
-
+#include <app.h>
+#include <app_alarm.h>
+#include <app_control.h>
+#include <message_port.h>
+#include <bundle.h>
 #define TIME_12_FORMAT "%I:%M %p" //%I :hour 0-12 %M : minute %p:am/pm
+
 typedef struct time_data {
 	int tm_hour, tm_min;
 	Elm_Object_Item *item;
@@ -27,7 +32,10 @@ typedef struct check_data {
 typedef struct recdata {
 	int tm_hour;
 	int tm_min;
+
 } recdata_s;
+
+time_data_s *td;
 
 static struct tm saved_time;
 Evas_Object * popup;
@@ -41,8 +49,14 @@ check_s ad;
 Elm_Genlist_Item_Class *itc = NULL;
 Evas_Object *genlist;
 Eina_Bool rep_check;
-time_data_s *td;
 
+char **service_data;
+int count = 0;
+//static struct tm * current;
+static int read_db(time_data_s *id);
+static void send_message(char*type, char*data);
+void send_message2(char * data);
+static void service_control(char * data);
 static void make_popup_time(void *data, Evas_Object *obj, void *event_info);
 static Evas_Object* gl_content_get_cb(void *data, Evas_Object *obj,
 		const char *part);
@@ -50,28 +64,87 @@ static char* gl_text_get_cb(void *data, Evas_Object *obj, const char *part);
 static void popup_set_btn_clicked_cb(void *data, Evas_Object *obj,
 		void *event_info);
 static void list_item_clicked(void *data, Evas_Object *obj, void *event_info);
-static void gl_item_updated(recdata_s *re);
-static int DeleteRecord(time_data_s* id, int tm_hour, int tm_min) {
+static void gl_item_updated();
+static int DeletRecord(time_data_s* id, int tm_hour, int tm_min) {
 	char sql[256];
 	char *ErrMsg;
+	char *data = malloc(100);
+	dlog_print(DLOG_INFO, "tag", "delete~~~");
 
 	snprintf(sql, 256,
 			"DELETE FROM feeding WHERE TM_HOUR = \'%d\' AND TM_MIN = \'%d\';",
 			tm_hour, tm_min);
-
+	dlog_print(DLOG_INFO, "tag", "%s", sql);
 	int ret = sqlite3_exec(id->db, sql, NULL, 0, &ErrMsg);
+	dlog_print(DLOG_INFO, "tag", "%d", ret);
+	snprintf(data, 100, "%d,%d", tm_hour, tm_min);
+	dlog_print(DLOG_INFO, "db", data);
+	send_message("delete", data);
+
 	return ret;
 
 }
+
 static int InsertRecord(time_data_s*id, int tm_hour, int tm_min) {
+	int ret;
 	char sql[256];
 	char *ErrMsg;
+	char *data = malloc(100);
+	dlog_print(DLOG_INFO, "db", "insert");
 
 	snprintf(sql, 256, "INSERT INTO feeding VALUES(%d,%d);", tm_hour, tm_min);
+	snprintf(data, 100, "%d,%d", tm_hour, tm_min);
+	dlog_print(DLOG_INFO, "db", data);
 
-	int ret = sqlite3_exec(id->db, sql, NULL, 0, &ErrMsg);
+	ret = sqlite3_exec(id->db, sql, NULL, 0, &ErrMsg);
+	//demo용
+
+	send_message2(data);
+	//send_message("TT",data);
+
+	count++;
+
 	return ret;
 }
+
+void send_message2(char * data) {
+	int ret;
+	const char* remote_app_id = "org.example.service";
+	const char* remote_port = "myapplicationservice_service_port";
+
+	bundle *b = bundle_create();
+	bundle_add_str(b, "command", "들어가랏");
+	bundle_add_str(b, "data", data);
+
+	ret = message_port_send_message(remote_app_id, remote_port, b);
+	if (ret != MESSAGE_PORT_ERROR_NONE) {
+		dlog_print(DLOG_ERROR, LOG_TAG,
+				"message_port_check_remote_port error : %d", ret);
+	} else {
+		dlog_print(DLOG_INFO, LOG_TAG, "Send message done");
+	}
+	bundle_free(b);
+}
+//service로 data보내기
+static void send_message(char*type, char*data) {
+	int ret;
+	const char* remote_app_id_ = "org.example.service";
+	const char* remote_port_ = "forpet";
+
+	bundle *b = bundle_create();
+	bundle_add_str(b, "command", "insert");
+	bundle_add_str(b, "data", data);
+
+	ret = message_port_send_message("org.example.service", remote_port_, b);
+	if (ret != MESSAGE_PORT_ERROR_NONE) {
+		dlog_print(DLOG_ERROR, LOG_TAG,
+				"message_port_check_remote_port error : %d", ret);
+	} else {
+		dlog_print(DLOG_INFO, LOG_TAG, "Send message done");
+	}
+	bundle_free(b);
+}
+
 static int CreateTable(time_data_s*id) {
 
 	char *ErrMsg;
@@ -80,6 +153,47 @@ static int CreateTable(time_data_s*id) {
 	int ret = sqlite3_exec(id->db, sql, NULL, 0, &ErrMsg);
 	return ret;
 
+}
+
+static char* gl_update_text_set_cb(void *data, Evas_Object *obj,
+		const char *part) {
+	char buf[1024];
+	char temp[1024];
+
+	char buff[100] = { 0 };
+
+	strftime(buff, 200, TIME_12_FORMAT, &saved_time);
+	if (!strcmp(part, "elm.text")) {
+		strftime(buf, 1023, "%I: %M", &saved_time);
+		return strdup(buf);
+	} else if (!strcmp(part, "elm.text.end")) {
+		strftime(buf, 1023, "%p         ", &saved_time);
+		return strdup(buf);
+	} else if (!strcmp(part, "elm.text.sub")) {
+		if (ad.select_num < 1) {
+			sprintf(temp, "%s", "알람");
+			return strdup(temp);
+		} //반복클릭안했을 경우
+		else {
+
+			sprintf(temp, "%s %s", "알람 ", ad.select[0]);
+			for (int i = 1; i < ad.select_num; i++) {
+				strcat(temp, " ");
+				strcat(temp, ad.select[i]);
+				dlog_print(DLOG_INFO, "user_tag0", temp);
+				dlog_print(DLOG_INFO, "user_tag2", "들어옴");
+			}
+			rep_check = EINA_FALSE;
+			return strdup(temp);
+		}
+
+	}
+
+	else if (!strcmp("elm.text.sub.end", part)) {
+		return strdup(" ");
+	}
+
+	return NULL;
 }
 static char* gl_text_update_cb(void *data, Evas_Object *obj, const char *part) {
 
@@ -141,10 +255,15 @@ static void gl_item_updated(recdata_s *rd) {
 }
 static int db_read_cb(void *counter, int argc, char **argv, char **azColName) {
 
+	char buf[100];
+
 	recdata_s* rd = malloc(sizeof(recdata_s));
 
 	rd->tm_hour = atoi(argv[0]);
 	rd->tm_min = atoi(argv[1]);
+
+	snprintf(buf, 100, "%d,%d ", rd->tm_hour, rd->tm_min);
+	send_message("data", buf);
 
 	gl_item_updated(rd);
 
@@ -152,30 +271,42 @@ static int db_read_cb(void *counter, int argc, char **argv, char **azColName) {
 }
 static int read_db(time_data_s *id) {
 	char *sql = "select * from feeding";
-	char *ErrMsg;
 	int counter = 0;
-	int ret = sqlite3_exec(id->db, sql, db_read_cb, &counter, &ErrMsg);
 
+	char *ErrMsg;
+
+	dlog_print(DLOG_INFO, "tag", "eonji~");
+	int ret = sqlite3_exec(id->db, sql, db_read_cb, &counter, &ErrMsg);
+	//dlog_print(DLOG_INFO,"tag",ret);a
 	return ret;
 }
+//static int temp_index = 0;
+
 static void init_db(time_data_s*id) {
 	sqlite3_shutdown();
 	sqlite3_config(SQLITE_CONFIG_URI, 1);
 	sqlite3_initialize();
 	char * resource = app_get_data_path();
+
 	int siz = strlen(resource) + 10;
 	char * path = malloc(sizeof(char) * siz);
 	memset(path, 0, sizeof(char) * siz);
 
 	strncat(path, resource, siz);
 	strncat(path, "feeding.db", siz);
+	dlog_print(DLOG_INFO, "user_tag0", path);
 	sqlite3_open(path, &id->db);
 	free(path);
 
 	CreateTable(id);
+
+	//read_db(id);
+	//counter =0;
 	read_db(id);
 }
+
 static void popup_block_clicked(void *data, Evas_Object *obj, void *event_info) {
+	Evas_Object *nf = data;
 	if (!obj)
 		return;
 	evas_object_del(obj);
@@ -183,10 +314,22 @@ static void popup_block_clicked(void *data, Evas_Object *obj, void *event_info) 
 	// evas_object_show(data);
 } // block영역 클릭시 팝업창 종료
 static void popup_closed_cb(void *data, Evas_Object *obj, void *event_info) {
+
 	if (!obj)
 		return;
 	evas_object_del(del_popup);
 	elm_popup_dismiss(del_popup);
+}
+static void popup_button_clicked(void *data, Evas_Object *obj, void *event_info) {
+	Evas_Object *nf = data;
+
+	if (!obj)
+		return;
+	evas_object_del(popup);
+	elm_popup_dismiss(popup);
+} // ok버튼 클릭시 팝업창 종료
+static void check_changed_cb(void *data, Evas_Object *obj, void *event_info) {
+	dlog_print(DLOG_INFO, "user_tag", "체크");
 }
 static void deleteDB(Elm_Object_Item *item) {
 
@@ -195,18 +338,28 @@ static void deleteDB(Elm_Object_Item *item) {
 	int hour;
 	int min;
 
+	//elm_object_item_part_text_get(item, "elm.txt");
 	char* time = elm_object_item_part_text_get(item, "elm.text");
+	//dlog_print(DLOG_INFO,"tag","%s text content",elm_object_item_part_text_get(item,"elm.text"));
 	char* apm = elm_object_item_part_text_get(item, "elm.text.end");
+	//dlog_print(DLOG_INFO,"tag","%s text content",elm_object_item_part_text_get(item,"elm.text.end"));
+
+	//dlog_print(DLOG_INFO, "tag", time);
+	//dlog_print(DLOG_INFO, "tag", apm);
 
 	sub_time[0] = strtok(time, ": ");
 	sub_time[1] = strtok(NULL, ": ");
 
+	//dlog_print(DLOG_INFO, "tag", "%s %s %s", sub_time[0], sub_time[1], apm);
 
 	if (!strcmp(apm, "PM         ")) {
+		//dlog_print(DLOG_INFO,"tag","pm");
 		hour = (atoi(sub_time[0]) + 12) % 24;
 		if (hour == 0) {
 			hour = 12;
 		}
+		//dlog_print(DLOG_INFO,"tag","pm");
+
 	}
 
 	else {
@@ -218,8 +371,9 @@ static void deleteDB(Elm_Object_Item *item) {
 
 	min = atoi(sub_time[1]);
 
-
-	DeleteRecord(td, hour, min);
+	//dlog_print(DLOG_INFO,"tag","%d %d", hour,min );
+	count--;
+	DeletRecord(td, hour, min);
 }
 static void gl_del_cb(time_data_s *id, Evas_Object *obj, void *event_info) {
 
@@ -231,10 +385,15 @@ static void gl_del_cb(time_data_s *id, Evas_Object *obj, void *event_info) {
 		i++;
 		deleteDB(item);
 		elm_object_item_del(item);
+		dlog_print(DLOG_INFO, "tag", "지우고~");
 		if (!obj)
 			return;
 		evas_object_del(del_popup);
+		dlog_print(DLOG_INFO, "tag", "팝업 지워~");
 		elm_popup_dismiss(del_popup);
+		dlog_print(DLOG_INFO, "tag", "끝");
+		//counter=0;
+		//  read_db(id);
 		i = 0;
 	} else {
 		i = 0;
@@ -249,39 +408,48 @@ static void rep_set_btn_clicked_cb(void *data, Evas_Object *obj,
 
 	ad.select = (char**) malloc(100);
 
+	//buf[0] = malloc(sizeof("abcd"));
 
 	if (elm_check_state_get(ad.check1) == EINA_TRUE) {
 		ad.select[i] = malloc(sizeof("Sun"));
 		ad.select[i] = "Sun";
+		dlog_print(DLOG_INFO, "user_tag", ad.select[i]);
+		dlog_print(DLOG_INFO, "user_tag", "설마");
 		i++;
 	}
 	if (elm_check_state_get(ad.check2) == EINA_TRUE) {
 		ad.select[i] = malloc(sizeof("Mon"));
 		ad.select[i] = "Mon";
+		dlog_print(DLOG_INFO, "user_tag", ad.select[i]);
 		i++;
 	}
 	if (elm_check_state_get(ad.check3) == EINA_TRUE) {
 		ad.select[i] = malloc(sizeof("Tue"));
 		ad.select[i] = "Tue";
+		dlog_print(DLOG_INFO, "user_tag", ad.select[i]);
 		i++;
 	}
 	if (elm_check_state_get(ad.check4) == EINA_TRUE) {
 		ad.select[i] = malloc(sizeof("Wed"));
 		ad.select[i] = "Wed";
+		dlog_print(DLOG_INFO, "user_tag", ad.select[i]);
 	}
 	if (elm_check_state_get(ad.check5) == EINA_TRUE) {
 		ad.select[i] = malloc(sizeof("Thu"));
 		ad.select[i] = "Thu";
+		dlog_print(DLOG_INFO, "user_tag", ad.select[i]);
 		i++;
 	}
 	if (elm_check_state_get(ad.check6) == EINA_TRUE) {
 		ad.select[i] = malloc(sizeof("Fri"));
 		ad.select[i] = "Fri";
+		dlog_print(DLOG_INFO, "user_tag", ad.select[i]);
 		i++;
 	}
 	if (elm_check_state_get(ad.check7) == EINA_TRUE) {
 		ad.select[i] = malloc(sizeof("Sat"));
 		ad.select[i] = "Sat";
+		dlog_print(DLOG_INFO, "user_tag", ad.select[i]);
 		i++;
 
 	}
@@ -290,6 +458,7 @@ static void rep_set_btn_clicked_cb(void *data, Evas_Object *obj,
 
 	evas_object_del(popup2);
 	elm_popup_dismiss(popup2);
+	//Eina_Bool state = elm_check_state_get(obj);
 }
 //알람추가(list추가)
 static void popup_set_btn_clicked_cb(void *data, Evas_Object *obj,
@@ -304,7 +473,6 @@ static void popup_set_btn_clicked_cb(void *data, Evas_Object *obj,
 	itc->func.text_get = gl_text_get_cb;
 	itc->func.content_get = gl_content_get_cb;
 
-
 	td->nf = nf;
 	it = elm_genlist_item_append(genlist, itc, td, NULL, ELM_GENLIST_ITEM_NONE,
 			list_item_clicked, td);
@@ -313,6 +481,7 @@ static void popup_set_btn_clicked_cb(void *data, Evas_Object *obj,
 }
 static void my_box_pack(Evas_Object *box, Evas_Object *child, double h_weight,
 		double v_weight, double h_align, double v_align) {
+	/* create a frame we shall use as padding around the child widget */
 	Evas_Object *frame = elm_frame_add(box);
 	elm_object_style_set(frame, "pad_medium");
 	/* set the input weight/aling on the frame insted of the child */
@@ -332,6 +501,7 @@ static void my_box_pack(Evas_Object *box, Evas_Object *child, double h_weight,
 static void make_popup_rep(void * data, Evas_Object *obj, void *event_info) {
 
 	Evas_Object *nf = data;
+	//Evas_Object * check1,*check2,*check3,*check4,*check5,*check6,*check7;
 	Evas_Object * box, *btn;
 
 	popup2 = elm_popup_add(nf);
@@ -340,6 +510,7 @@ static void make_popup_rep(void * data, Evas_Object *obj, void *event_info) {
 
 	evas_object_size_hint_weight_set(popup2, EVAS_HINT_EXPAND,
 	EVAS_HINT_EXPAND);
+	//elm_object_content_set(grid,popup);
 	box = elm_box_add(popup2);
 	btn = elm_button_add(box);
 	elm_box_padding_set(box, 10, 0);
@@ -352,13 +523,17 @@ static void make_popup_rep(void * data, Evas_Object *obj, void *event_info) {
 	eext_object_event_callback_add(popup2, EEXT_CALLBACK_BACK,
 			eext_popup_back_cb, NULL);
 	evas_object_smart_callback_add(btn, "clicked", rep_set_btn_clicked_cb, nf);
-
+	//elm_object_part_content_set(popup2, "button1", btn);
+	//elm_gengrid_horizontal_set(gengrid, EINA_TRUE);
+//elm_box_horizontal_set(box,EINA_TRUE);
 	ad.check1 = elm_check_add(box);
+
 	ad.check2 = elm_check_add(box);
 	ad.check3 = elm_check_add(box);
 	ad.check4 = elm_check_add(box);
 	ad.check5 = elm_check_add(box);
 	ad.check6 = elm_check_add(box);
+
 	ad.check7 = elm_check_add(box);
 
 	elm_object_style_set(ad.check1, "popup");
@@ -407,20 +582,23 @@ static void make_popup_rep(void * data, Evas_Object *obj, void *event_info) {
 	evas_object_show(popup2);
 }
 static void make_popup_time(void *data, Evas_Object *obj, void *event_info) {
-
-
+	ad.select_num = 0;
 	Evas_Object * btn, *btn2, *grid;
 	Evas_Object *nf = data;
+	Evas_Object * check1, *check2, *check3, *check4, *check5, *check6, *check7;
+	//Evas_Object * box;
 
 	popup = elm_popup_add(nf);
 
 	elm_popup_align_set(popup, ELM_NOTIFY_ALIGN_FILL, 0.5);
 
 	evas_object_size_hint_weight_set(popup, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	//elm_object_content_set(grid,popup);
 
 	datetime = elm_datetime_add(popup);
 	evas_object_size_hint_align_set(datetime, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	elm_object_style_set(datetime, "time_layout");
+	//elm_popup_pack(popup,datetime, 100, 100, 400,300);
 	elm_object_content_set(popup, datetime);
 
 	btn = elm_button_add(popup);
@@ -432,10 +610,8 @@ static void make_popup_time(void *data, Evas_Object *obj, void *event_info) {
 	elm_object_style_set(btn2, "popup");
 	elm_object_text_set(btn2, "반복");
 	elm_object_part_content_set(popup, "button2", btn2);
-
 	evas_object_show(btn);
 	evas_object_show(btn2);
-
 	eext_object_event_callback_add(popup, EEXT_CALLBACK_BACK,
 			eext_popup_back_cb, NULL);
 	evas_object_smart_callback_add(btn, "clicked", popup_set_btn_clicked_cb,
@@ -443,13 +619,14 @@ static void make_popup_time(void *data, Evas_Object *obj, void *event_info) {
 	evas_object_smart_callback_add(btn2, "clicked", make_popup_rep, nf);
 	evas_object_smart_callback_add(popup, "block,clicked", popup_block_clicked,
 			nf);
-
 	datetime = elm_datetime_add(popup);
 	evas_object_size_hint_align_set(datetime, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	elm_object_style_set(datetime, "time_layout");
 	elm_object_content_set(popup, datetime);
 
 	evas_object_show(datetime);
+	//rep_check=EINA_FALSE;
+
 	evas_object_show(popup);
 
 }
@@ -460,8 +637,10 @@ static Evas_Object* create_image(Evas_Object *parent, char*s) {
 	elm_image_file_set(img, img_path, NULL);
 	return img;
 }
+
 static void list_item_clicked(void *data, Evas_Object *obj, void *event_info) {
 
+	dlog_print(DLOG_INFO, "tag", "make!");
 	Evas_Object * yes_btn, *no_btn;
 	Evas_Object * label;
 	time_data_s *id = data;
@@ -476,31 +655,31 @@ static void list_item_clicked(void *data, Evas_Object *obj, void *event_info) {
 	elm_object_text_set(label,
 			"<font_size=80><align=center>삭제하시겠습니까?</align></font size>");
 	elm_object_content_set(del_popup, label);
-
 	yes_btn = elm_button_add(del_popup);
 	no_btn = elm_button_add(del_popup);
-
 	elm_object_style_set(yes_btn, "popup");
 	elm_object_text_set(yes_btn, "YES");
 	elm_object_part_content_set(del_popup, "button1", yes_btn);
 	elm_object_style_set(no_btn, "popup");
 	elm_object_text_set(no_btn, "NO");
-
 	elm_object_part_content_set(del_popup, "button2", no_btn);
+
 	eext_object_event_callback_add(del_popup, EEXT_CALLBACK_BACK,
 			eext_popup_back_cb, NULL);
 	evas_object_smart_callback_add(yes_btn, "clicked", gl_del_cb, id);
 	evas_object_smart_callback_add(no_btn, "clicked", popup_closed_cb, nf);
 	evas_object_smart_callback_add(del_popup, "block,clicked",
 			popup_block_clicked, nf);
-
-
+	//evas_object_show(label);
 	evas_object_show(yes_btn);
 	evas_object_show(no_btn);
 	evas_object_show(del_popup);
 }
+
 static Evas_Object* gl_content_get_cb(void *data, Evas_Object *obj,
 		const char *part) {
+
+	td = data;
 
 	if (!strcmp("elm.swallow.icon", part)) {
 		Evas_Object *content = create_image(obj, "clock.png");
@@ -517,10 +696,13 @@ static Evas_Object* gl_content_get_cb(void *data, Evas_Object *obj,
 	} else
 		return NULL;
 }
+
 static char* gl_text_get_cb(void *data, Evas_Object *obj, const char *part) {
 	char buf[1024];
 	char temp[1024];
-
+	dlog_print(DLOG_INFO, "get", "%d", saved_time.tm_min);
+	char buff[100] = { 0 };
+	strftime(buff, 200, TIME_12_FORMAT, &saved_time);
 	if (!strcmp(part, "elm.text")) {
 		strftime(buf, 1023, "%I: %M", &saved_time);
 		return strdup(buf);
@@ -538,6 +720,8 @@ static char* gl_text_get_cb(void *data, Evas_Object *obj, const char *part) {
 			for (int i = 1; i < ad.select_num; i++) {
 				strcat(temp, " ");
 				strcat(temp, ad.select[i]);
+				dlog_print(DLOG_INFO, "user_tag0", temp);
+				dlog_print(DLOG_INFO, "user_tag2", "들어옴");
 			}
 			rep_check = EINA_FALSE;
 			return strdup(temp);
@@ -551,10 +735,12 @@ static char* gl_text_get_cb(void *data, Evas_Object *obj, const char *part) {
 
 	return NULL;
 }
+
 static Evas_Object* create_button_view(Evas_Object *parent, Evas_Object *nf) {
 
-	Evas_Object *btn, *grid, *label, *list, *add, *label_forpet;
+	Evas_Object *btn, *img, *grid, *label, *list, *add, *label_forpet;
 	//Elm_Genlist_Item_Class *itc = NULL;
+	int i, num_of_item;
 
 	grid = elm_grid_add(parent);
 
@@ -562,7 +748,7 @@ static Evas_Object* create_button_view(Evas_Object *parent, Evas_Object *nf) {
 	evas_object_size_hint_weight_set(grid, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	/* icon_reorder style */
 
-
+	//elm_grid_pack(grid, bg, 0, 0, 480, 800);
 	elm_bg_color_set(grid, 255, 255, 255);
 	evas_object_show(grid);
 
@@ -611,6 +797,7 @@ static Evas_Object* create_button_view(Evas_Object *parent, Evas_Object *nf) {
 
 	return grid;
 }
+
 void feeding_view_cb(void *data, Evas_Object *obj, void *event_info) {
 
 	Evas_Object *layout;
